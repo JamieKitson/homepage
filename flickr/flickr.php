@@ -12,9 +12,6 @@ function flickrCall($params, $sign = true)
 	if ($sign)
 		$params['auth_token'] = '72157625029776678-525f355ed66e7cfd';
 
-	// if ($params['method'] == 'flickr.favorites.getPublicList')
-	//	$params['per_page'] = 21;
-
 	$encoded_params = array();
 
 	foreach ($params as $k => $v)
@@ -28,42 +25,38 @@ function flickrCall($params, $sign = true)
 
 	$url = "http://api.flickr.com/services/rest/?$p&api_sig=$m";
 
+	// echo "<!-- $url -->\n";
+
 	$rsp = @file_get_contents($url);
 
 	$p = unserialize($rsp);
-
-	// echo "<div class=\"flickrcontainer\">\n";
 
 	foreach($p['photos']['photo'] as $a)
 	{
 		if ($a['id'] == '')
 			continue;
-		$title = htmlentities($a['title']).' by '.$a['ownername'];
+		// $title = htmlentities($a['title'].' by '.$a['ownername'], ENT_QUOTES, UTF-8);
+		$title = $a['title'].' by '.$a['ownername'];
 		echo '<a href="http://flickr.com/photos/'.$a['owner'].'/'.$a['id'].'/">';
-		echo '<img width=75 height=75 src="http://farm'.$a['farm'].'.static.flickr.com/'.$a['server'].'/'.$a['id'].'_'.$a['secret'].'_s.jpg" alt="'.$title.'" title="'.$title.'"></a>'."\n";
-		//echo '<img src="http://farm'.$a['farm'].'.static.flickr.com/'.$a['server'].'/'.$a['id'].'_'.$a['secret'].'_t.jpg"></a>'."\n";
+		$src = 'http://farm'.$a['farm'].'.static.flickr.com/'.$a['server'].'/'.$a['id'].'_'.$a['secret'].'_s.jpg';
+		echo '<img width=75 height=75 src="'.$src.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
 	}
-
-	// echo "</div>\n";
 }
 
 function flickrSearch($params)
 {
 	$params['method']        = 'flickr.photos.search';
 	$params['privacy_filter']= 1;
-
 	flickrCall($params);
 }
 
 function auth()
 {
-
-$params = array( 
-    'method' => 'flickr.auth.getFullToken',
-    'mini_token' => '204-121-649' );
-
-flickrCall($params);
-
+	$params = array( 
+    		'method' => 'flickr.auth.getFullToken',
+    		'mini_token' => '204-121-649' 
+	);
+	flickrCall($params);
 }
 
 ?>

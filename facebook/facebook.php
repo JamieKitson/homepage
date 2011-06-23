@@ -69,9 +69,10 @@ function procLink($l)
 
 	echo '<div class="facebooklink">';
 	echo '<div class="facebooklinkcomment">'.htmlentities($l[message], ENT_QUOTES, 'UTF-8').'</div>';
+	$title = $l[attachment][name];
 	if (is_array($l[attachment][media]))
 	{
-		echo '<img class="facebooklink" src="'.htmlentities($l[attachment][media][0][src]).'">';
+		echo '<img class="facebooklink" src="'.htmlentities($l[attachment][media][0][src]).'" alt="'.$title.'">';
 	}
 	$href = $l[attachment][href];
 	$q = parse_url($href, PHP_URL_QUERY);
@@ -84,7 +85,7 @@ function procLink($l)
 			break;
 		}
 	}
-	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($l[attachment][name]).'</a></div>';
+	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($title).'</a></div>';
 	echo '<div class="facebooklinksite">'.htmlspecialchars($l[attachment][caption]).'</div>';
 	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l[attachment][description]).'</div>';
 	faceDate($l);
@@ -95,7 +96,7 @@ function faceDate($l)
 {
 	echo '<div class="facebookdate"><a href="'.htmlentities($l[permalink]).'">';
 	echo date('D j M \a\t H:i', $l[created_time] + 8*60*60).'</a></div>';
-	echo '<div class="clear"></div>';
+	// echo '<div class="clear"></div>';
 	if ($l[comments][count] > 0)
 	{
 		echo '<div class="facebookcomments"><a href="'.htmlentities($l[permalink]).'">View ';

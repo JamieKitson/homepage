@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://jamiekitson.myopenid.com/" />
+<link rel="openid2.local_id" href="http://jamiekitson.myopenid.com" />
+<link rel="openid2.provider" href="http://www.myopenid.com/server" />
+<!-- meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=jamiekitson.myopenid.com" / -->
 <title>Jamie Kitson</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
-<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript">
 
@@ -75,6 +80,8 @@ $(document).ready(function()
 <h1>The Jamie Kitson Portal</h1>
 <a href="&#109;a&#105;&#X6c;&#X0074;&#X6f;&#0058;&#X6a;&#0097;&#0109;&#0105;&#0101;&#00064;k&#X00069;&#116;&#X0074;&#00101;&#0110;&#00045;&#120;&#X2e;&#99;&#111;m">&#X6a;&#0097;&#0109;&#0105;&#0101;&#00064;k&#X00069;&#116;&#X0074;&#00101;&#0110;&#00045;&#120;&#X2e;&#99;&#111;m</a>
 <a href="http://jamiekitson.com">cv</a>
+<br>
+Mongol Rally: <a href="http://geekout.org.uk">Team Geekout</a> 
 </div>
 
 <div class="content" id="flickr">

@@ -13,6 +13,10 @@ h2, h3 {
         font-weight: normal;
 }
 
+div.top br {
+	margin-bottom: 0.5em;
+}
+
 a, a:visited {
         color: black;
 }
@@ -29,15 +33,9 @@ div.content:last-child {
 	margin-bottom: 4em;
 }
 
-div.flickrmore {
-	/* height: 0px; 
-	overflow: hidden; */
-	display: none;
-}
 
-/* in order that the heights match */
-div.flickrmoreinner {
-	overflow: hidden;
+div.flickrmore {
+	display: none;
 }
 
 a#flickrmorelink {
@@ -47,6 +45,10 @@ a#flickrmorelink {
 div.flickrcomment {
 	width: 150px;
 	float: left;
+}
+
+div#flickrcontainer {
+	padding-top: 1px; /* stops jquery slide bump/jump */
 }
 
 div#bloginner {
@@ -137,6 +139,10 @@ div#facebookcontainer {
 img.facebooklink {
 	float: left;
 	margin: 0.5em;
+}
+
+div.facebookstatus {
+	white-space: pre-line;
 }
 
 div.facebooklink, div.facebookstatus {

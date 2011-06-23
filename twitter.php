@@ -6,7 +6,7 @@
         // foreach($xml->channel->item as $i)
 	// print_r($xml);
 
-	$url = 'http://api.twitter.com/statuses/user_timeline.xml?screen_name=jamiekitson&count=10&include_rts=1';
+	$url = 'http://api.twitter.com/1/statuses/user_timeline.xml?screen_name=jamiekitson&count=10&include_rts=1';
 
         $xml = simplexml_load_string(@file_get_contents($url));
         foreach($xml->status as $i)
