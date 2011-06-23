@@ -1,0 +1,21 @@
+<html>
+<style>
+div { border: 1px solid black; width: 1.2em; text-align: center; }
+</style>
+<script>
+function c()
+{
+	var e = document.getElementById("div");
+	if (e.innerHTML == "+")
+		e.innerHTML = "-";
+	else
+		e.innerHTML = "+";
+		
+}
+</script>
+<body>
+<div onclick="c()" id="div">+</div>
+<p>
+<!-- div onclick="c()" id="div">-</div -->
+</body>
+</html>

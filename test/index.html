@@ -1,0 +1,28 @@
+<!html>
+<head>
+<script type="text/javascript">
+function CheckChildren(obj)
+{
+
+        alert(obj.id + ' ' + obj.tagName + ' ' + obj.childNodes.length);
+        for (var i = 0; i < obj.childNodes.length; i++)
+        {
+alert(obj.childNodes[i].checked);
+		return (obj.childNodes[i].checked || CheckChildren(obj.childNodes[i]))
+        }
+        alert(obj.id);
+        return false;
+
+}
+</script>
+</head>
+<body>
+
+<table id="table">
+<tr id="a"><td><input type="checkbox"></td><td id="b">b</td><td id="c">c</td></tr>
+<tr id="d"><td><input type="checkbox"><td id="e">e</td><td id="f">f</td></tr>
+</table>
+<input type="button" onclick="alert(CheckChildren(document.getElementById('table')))" value="click">
+</body>
+</html>
+
