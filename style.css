@@ -76,7 +76,7 @@ div#bloginner h3 {
 	padding-left: 45px;
 }
 
-div.blogdate {
+div#bloginner div.postdate {
 	border-bottom: 1px dotted #99BB99;
 	color: #663;
 	letter-spacing: 0.3em;
@@ -84,11 +84,11 @@ div.blogdate {
 	font-size: 90%;
 }
 
-div.blogpost {
+div#bloginner div.post {
 	margin-bottom: 0.75em;
 }
 
-div#bloginner div.blogpost a {
+div#bloginner div.post a {
 	text-decoration: underline;
 }
 
@@ -217,6 +217,31 @@ span.control
 h2 a
 {
 	left: 0;
+}
+
+#geekoutcontainer
+{
+	border: 2em solid #F2D98D;
+	padding: 0.5em 1.5em;
+}
+
+#geekoutcontainer a
+{
+	color: #315485;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#geekoutcontainer .postdate
+{
+	margin-top: 1em;
+	border-bottom: 1px dotted #315485;
+	font-style: italic;
+}
+
+#geekoutcontainer h3
+{
+	margin: 1em 0;
 }
 
 

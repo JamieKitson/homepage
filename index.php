@@ -115,6 +115,17 @@ cachedHTML('flickr/flickrMine.php');
 </div>
 </div>
 
+<!-- div class="content" id="geekout">
+<h2><a href="http://geekout.org.uk">Team Geekout</a></h2>
+<div id="geekoutcontainer" class="container"><div id="">
+<?php
+
+// cachedHTML('geekout.php');
+
+?>
+</div></div>
+</div -->
+
 <div class="content" id="blog">
 <h2><a href="http://blog.jamiek.it">blog</a></h2>
 <div id="blogouter" class="container"><div id="bloginner">
@@ -125,6 +136,7 @@ cachedHTML('blog.php');
 ?>
 </div></div>
 </div>
+
 <div class="content" id="twitter">
 <h2><a href="http://twitter.com/jamiekitson">twitter</a></h2>
 <div id="twittercontainer" class="container">
