@@ -110,11 +110,11 @@ div.twitterpost:last-child {
 
 a.twitterpost {
 	color: #2276BB;
-	text-docoration: none;
+	text-decoration: none;
 }
 
 a.twitterpost:hover {
-	text-docoration: underline;
+	text-decoration: underline;
 }
 
 a.twitterdate {
