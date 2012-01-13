@@ -1,6 +1,6 @@
 <?php
 
-include_once '/srv/www/jamiek.it/twitterLink.php';
+include_once '../twitterLink.php';
 require_once 'facebook-platform/php/facebook.php';
 
 $appapikey = 'cc9678acde5945726dff52d120a34943';
@@ -28,10 +28,10 @@ function fb($facebook)
 	$facebook->clear_cookie_state();
 	$b = $facebook->api_client->stream_get('835135340','835135340','','', 30, '','');
 	$c = 0;
-	for ($i = 0; $c < 10 && $i < count($b[posts]); $i++)
+	for ($i = 0; $c < 10 && $i < count($b['posts']); $i++)
 	{
-		$p = $b[posts][$i];
-		switch ($p[type]) 
+		$p = $b['posts'][$i];
+		switch ($p['type']) 
 		{
 			case 11: break;
 			case 46:
@@ -44,19 +44,19 @@ function fb($facebook)
 
 function procComments($p)
 {
-	if (is_array($p[comments][comment_list]))
+	if (is_array($p['comments']['comment_list']))
 	{
-		foreach($p[comments][comment_list] as $c)
-			echo '<div class="facebookcomment">'.$c[text]."</div>\n";
+		foreach($p['comments']['comment_list'] as $c)
+			echo '<div class="facebookcomment">'.$c['text']."</div>\n";
 	}
 }
 
 function procPost($p)
 {
-	if (($p[attribution] == 'Twitter' || $p[attribution] == 'Yahoo!') && $p[comments][count] == 0)
+	if (($p['attribution'] == 'Twitter' || $p['attribution'] == 'Yahoo!') && $p['comments']['count'] == 0)
 		return 0;
 	echo '<div class="facebookstatus">';
-	echo linkify_twitter_status($p[message]);
+	echo linkify_twitter_status($p['message']);
 	faceDate($p);
 	echo "</div>\n";
 	return 1;
@@ -68,13 +68,13 @@ function procLink($l)
 // print_r($l);
 
 	echo '<div class="facebooklink">';
-	echo '<div class="facebooklinkcomment">'.htmlentities($l[message], ENT_QUOTES, 'UTF-8').'</div>';
-	$title = $l[attachment][name];
-	if (is_array($l[attachment][media]))
+	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES, 'UTF-8').'</div>';
+	$title = $l['attachment']['name'];
+	if (is_array($l['attachment']['media']))
 	{
-		echo '<img class="facebooklink" src="'.htmlentities($l[attachment][media][0][src]).'" alt="'.$title.'">';
+		echo '<img class="facebooklink" src="'.htmlentities($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
 	}
-	$href = $l[attachment][href];
+	$href = $l['attachment']['href'];
 	$q = parse_url($href, PHP_URL_QUERY);
 	foreach(explode('&', $q) as $u)
 	{
@@ -86,21 +86,21 @@ function procLink($l)
 		}
 	}
 	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($title).'</a></div>';
-	echo '<div class="facebooklinksite">'.htmlspecialchars($l[attachment][caption]).'</div>';
-	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l[attachment][description]).'</div>';
+	echo '<div class="facebooklinksite">'.htmlspecialchars($l['attachment']['caption']).'</div>';
+	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l['attachment']['description']).'</div>';
 	faceDate($l);
 	echo "</div>\n";
 }
 
 function faceDate($l)
 {
-	echo '<div class="facebookdate"><a href="'.htmlentities($l[permalink]).'">';
-	echo date('D j M \a\t H:i', $l[created_time] + 8*60*60).'</a></div>';
+	echo '<div class="facebookdate"><a href="'.htmlentities($l['permalink']).'">';
+	echo date('D j M \a\t H:i', $l['created_time'] + 8*60*60).'</a></div>';
 	echo '<div class="clear"></div>'; // for float: left images
-	if ($l[comments][count] > 0)
+	if ($l['comments']['count'] > 0)
 	{
-		echo '<div class="facebookcomments"><a href="'.htmlentities($l[permalink]).'">View ';
-		echo $l[comments][count].' comments</a></div>';
+		echo '<div class="facebookcomments"><a href="'.htmlentities($l['permalink']).'">View ';
+		echo $l['comments']['count'].' comments</a></div>';
 	}
 }
 
