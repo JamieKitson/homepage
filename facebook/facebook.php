@@ -1,7 +1,10 @@
 <?php
 
-include_once '../twitterLink.php';
-require_once 'facebook-platform/php/facebook.php';
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+include_once dirname(__FILE__).'/../twitterLink.php';
+require_once dirname(__FILE__).'/facebook-platform/php/facebook.php';
 
 $appapikey = 'cc9678acde5945726dff52d120a34943';
 $appsecret = '1736ea7084869f7879d3fd4d198a3972';
