@@ -71,7 +71,7 @@ function procLink($l)
 // print_r($l);
 
 	echo '<div class="facebooklink">';
-	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES, 'UTF-8').'</div>';
+	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES).'</div>';
 	$title = $l['attachment']['name'];
 	if (is_array($l['attachment']['media']))
 	{
