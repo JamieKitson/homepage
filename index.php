@@ -126,17 +126,6 @@ cachedHTML('flickr/flickrMine.php');
 </div></div>
 </div -->
 
-<div class="content" id="blog">
-<h2><a href="http://blog.jamiek.it">blog</a></h2>
-<div id="blogouter" class="container"><div id="bloginner">
-<?php
-
-cachedHTML('blog.php');
-
-?>
-</div></div>
-</div>
-
 <div class="content" id="twitter">
 <h2><a href="http://twitter.com/jamiekitson">twitter</a></h2>
 <div id="twittercontainer" class="container">
@@ -157,6 +146,17 @@ cachedHTML('youtube.php');
 
 ?>
 </div>
+</div>
+
+<div class="content" id="blog">
+<h2><a href="http://blog.jamiek.it">blog</a></h2>
+<div id="blogouter" class="container"><div id="bloginner">
+<?php
+
+cachedHTML('blog.php');
+
+?>
+</div></div>
 </div>
 
 <div class="content" id="facebook">
