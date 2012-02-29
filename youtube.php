@@ -37,15 +37,15 @@ foreach($vals as $item)
 		case "MEDIA:THUMBNAIL": 
 			if (!$thumb && ($item["attributes"]["HEIGHT"] == 360))
 			{ 
-				$thumb = '<img src="'.$item["attributes"]["URL"].'" class="ytthumb rel">';
+				$thumb = '<img src="'.$item["attributes"]["URL"].'" class="ytthumb rel" alt="'.$title.'">';
 			} 
 			break;
 		case "YT:STATISTICS" :
 			$views = $item["attributes"]["VIEWCOUNT"];
 			$favs = $item["attributes"]["FAVORITECOUNT"];
-			print '<a href="'.$link.'" class="youtube">'.$thumb;
-			print '<div class="yttext rel"><span class="yttitle">'.$title.'</span><br><span class="ytdesc">jamiekitson '."$views views<br>$desc</span>";
-			//print "<div class=\"ytdesc\">$desc</div>";
+			print '<a href="'.htmlentities($link).'" class="youtube">'.$thumb;
+			print '<div class="yttext rel"><span class="yttitle">'.$title.'</span><br>';
+			print '<span class="ytdesc">jamiekitson '."$views views<br>$desc</span>";
 			print "</div></a>\n";
 			break;
 	}
