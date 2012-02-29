@@ -148,6 +148,17 @@ cachedHTML('twitter.php');
 </div>
 </div>
 
+<div class="content" id="youtube">
+<h2><a href="http://youtube.com/jamiekitson">YouTube</a></h2>
+<div id="ytcontainer" class="container">
+<?php
+
+cachedHTML('youtube.php');
+
+?>
+</div>
+</div>
+
 <div class="content" id="facebook">
 <h2><a href="http://www.facebook.com/mardybumhead">facebook</a></h2>
 <div id="facebookcontainer" class="container">
