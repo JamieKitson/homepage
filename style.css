@@ -249,6 +249,7 @@ h2 a
 	border: 0.2em solid #CCCCCC;
 	background-color: #DDDDDD;
 	padding: 0.5em 1em;
+    	border-radius: 3px 3px 3px 3px;
 }
 
 .youtube:hover .yttitle
