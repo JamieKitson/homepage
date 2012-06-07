@@ -26,7 +26,11 @@ foreach($vals as $item)
 			$title = $item["value"]; 
 			break;
 		case "CONTENT": 
-			$desc = $item["value"]; 
+			if (array_key_exists("value", $item)) {
+				$desc = $item["value"]; 
+			} else {
+				$desc = "";
+			}
 			break;
 		case "LINK": 
 			if ($item["attributes"]["REL"] == "alternate") 

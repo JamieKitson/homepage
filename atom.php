@@ -4,6 +4,9 @@ function atom($url)
 {
 	$xml = simplexml_load_string(@file_get_contents($url));
 
+	if (empty($xml->entry))
+		return;
+
         foreach($xml->entry as $e)
         {
                 echo '<div class="postdate">'.date('l, F j, Y', strtotime($e->published))."</div>";
