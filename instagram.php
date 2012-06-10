@@ -14,7 +14,7 @@
                 if ($a['id'] == '')
                         continue;
                 // $title = htmlentities($a['title'].' by '.$a['ownername'], ENT_QUOTES, UTF-8);
-                $title = $a['caption']['text'].' by '.$a['caption']['from']['full_name'];
+                $title = htmlentities($a['caption']['text'].' by '.$a['caption']['from']['full_name']);
                 echo '<a href="'.$a['link'].'">';
                 $src = $a['images']['thumbnail']['url'];
                 echo '<img width=75 height=75 src="'.$src.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";

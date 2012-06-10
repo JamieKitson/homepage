@@ -36,7 +36,7 @@ function flickrCall($params, $sign = true)
 		if ($a['id'] == '')
 			continue;
 		// $title = htmlentities($a['title'].' by '.$a['ownername'], ENT_QUOTES, UTF-8);
-		$title = $a['title'].' by '.$a['ownername'];
+		$title = htmlentities($a['title'].' by '.$a['ownername']);
 		echo '<a href="http://flickr.com/photos/'.$a['owner'].'/'.$a['id'].'/">';
 		$src = 'http://farm'.$a['farm'].'.static.flickr.com/'.$a['server'].'/'.$a['id'].'_'.$a['secret'].'_s.jpg';
 		echo '<img width=75 height=75 src="'.$src.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
