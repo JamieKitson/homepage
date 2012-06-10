@@ -56,7 +56,7 @@ cachedHTML('flickr/flickrMine.php');
 </div>
 
 <div class="content" id="instagram">
-<h2><a href="http://www.flickr.com/photos/jamiekitson">Instagram</a></h2>
+<h2><a href="http://webbygram.com/jamiekitson/">Instagram</a></h2>
 <div id="instagramcontainer" class="container">
 <?php
 
