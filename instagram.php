@@ -11,9 +11,6 @@
 
         foreach($j['data'] as $a)
         {
-                if ($a['id'] == '')
-                        continue;
-                // $title = htmlentities($a['title'].' by '.$a['ownername'], ENT_QUOTES, UTF-8);
                 $title = htmlentities($a['caption']['text'].' by '.$a['caption']['from']['full_name']);
                 echo '<a href="'.$a['link'].'">';
                 $src = $a['images']['thumbnail']['url'];
