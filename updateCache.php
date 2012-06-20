@@ -1,7 +1,11 @@
 <?php
 
+// Usage: /usr/bin/php updateCache.php RunFile OutFile
+// RunFile: PHP file to run
+// OutFile: File to write output to
+
 $t = microtime(true);
-$s = exec("/usr/bin/php ".$argv[1], $out, $ret);
+exec("/usr/bin/php ".$argv[1], $out, $ret);
 $s = trim(implode("\n", $out));
 
 if ($ret != 0)
