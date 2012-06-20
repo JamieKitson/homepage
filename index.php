@@ -60,8 +60,6 @@ cachedHTML('flickr/flickrMine.php');
 <div id="instagramcontainer" class="container">
 <?php
 
-include_once 'cache.php';
-
 cachedHTML('instagram.php');
 
 ?>
