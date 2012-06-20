@@ -26,9 +26,9 @@ Mongol Rally: <a href="http://geekout.org.uk">Team Geekout</a>
 </div>
 
 <div class="content" id="flickr">
-<h2><a href="http://www.flickr.com/photos/jamiekitson">flickr</a></h2>
+<h2><a href="http://www.flickr.com/photos/jamiekitson">Flickr</a></h2>
 <div id="flickrcontainer" class="container">
-<h3><a href="http://www.flickr.com/photos/jamiekitson">my photos</a></h3>
+<h3><a href="http://www.flickr.com/photos/jamiekitson">My Photos</a></h3>
 <?php
 
 include_once 'cache.php';
@@ -37,16 +37,16 @@ cachedHTML('flickr/flickrMine.php');
 
 ?>
 <div id="flickrmore1" class="flickrmore"><div id="flickrmore1inner" class="flickrmoreinner">
-<h3><a href="http://www.flickr.com/photos/tags/jamiekitson">photos of me me me</a></h3>
+<h3><a href="http://www.flickr.com/photos/tags/jamiekitson">Photos of Me Me Me</a></h3>
 <div id="flickrmore1params">Me</div></div></div>
 
 <div id="flickrmore2" class="flickrmore"><div id="flickrmore2inner" class="flickrmoreinner">
-<h3><a href="http://www.flickr.com/photos/jamiekitson/tags/myfavs/">my own favs</a></h3>
+<h3><a href="http://www.flickr.com/Photos/jamiekitson/tags/myfavs/">My Own Favs</a></h3>
 <div id="flickrmore2params">OwnFavs</div></div></div>
 
 <div id="flickrmore3" class="flickrmore"><div id="flickrmore3inner" class="flickrmoreinner">
 </div>
-<h3><a href="http://www.flickr.com/photos/jamiekitson/favorites/">my favs</a></h3>
+<h3><a href="http://www.flickr.com/photos/jamiekitson/favorites/">My Favs</a></h3>
 <div id="flickrmore3params">Favs</div></div>
 
 <div id="flickrlink">
@@ -80,7 +80,7 @@ cachedHTML('instagram.php');
 </div -->
 
 <div class="content" id="twitter">
-<h2><a href="http://twitter.com/jamiekitson">twitter</a></h2>
+<h2><a href="http://twitter.com/jamiekitson">Twitter</a></h2>
 <div id="twittercontainer" class="container">
 <?php
 
@@ -102,7 +102,7 @@ cachedHTML('youtube.php');
 </div>
 
 <div class="content" id="blog">
-<h2><a href="http://blog.jamiek.it">blog</a></h2>
+<h2><a href="http://blog.jamiek.it">Blog</a></h2>
 <div id="blogouter" class="container"><div id="bloginner">
 <?php
 
@@ -113,7 +113,7 @@ cachedHTML('blog.php');
 </div>
 
 <div class="content" id="facebook">
-<h2><a href="http://www.facebook.com/mardybumhead">facebook</a></h2>
+<h2><a href="http://www.facebook.com/mardybumhead">Facebook</a></h2>
 <div id="facebookcontainer" class="container">
 <?php 
 
