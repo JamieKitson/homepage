@@ -10,7 +10,7 @@ function flickrCall($params, $sign = true)
 	$params['sort']		= 'date-posted-desc';
 
 	if ($sign)
-		$params['auth_token'] = '72157625029776678-525f355ed66e7cfd';
+		$params['auth_token'] = trim(file_get_contents('token'));
 
 	$encoded_params = array();
 
@@ -54,7 +54,7 @@ function auth()
 {
 	$params = array( 
     		'method' => 'flickr.auth.getFullToken',
-    		'mini_token' => '204-121-649' 
+    		'mini_token' => trim(file_get_contents('mini-token')) 
 	);
 	flickrCall($params);
 }
