@@ -10,7 +10,7 @@ function flickrCall($params, $sign = true)
 	$params['sort']		= 'date-posted-desc';
 
 	if ($sign)
-		$params['auth_token'] = trim(file_get_contents('token'));
+		$params['auth_token'] = trim(file_get_contents(dirname(__FILE__).'/token'));
 
 	$encoded_params = array();
 
