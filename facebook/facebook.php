@@ -7,7 +7,7 @@ include_once dirname(__FILE__).'/../twitterLink.php';
 require_once dirname(__FILE__).'/facebook-platform/php/facebook.php';
 
 $appapikey = 'cc9678acde5945726dff52d120a34943';
-$appsecret = trim(file_get_contents('secret'));
+$appsecret = trim(file_get_contents(dirname(__FILE__).'/secret'));
 
 $facebook = new Facebook($appapikey, $appsecret);
 $facebook->set_user(835135340, '4bd01053d967b2613148f3ce-835135340', '0' );
