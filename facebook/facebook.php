@@ -39,13 +39,16 @@ function fb($facebook)
 	for ($i = 0; $c < 10 && $i < count($b['posts']); $i++)
 	{
 		$p = $b['posts'][$i];
-		switch ($p['type']) 
+		if ($p['actor_id'] == '835135340')
 		{
-			case 11: break;
-			case 46:
-			case 237: $c += procPost($p); break;
-			case 247:
-			case 80: procLink($p); $c++; break;
+			switch ($p['type']) 
+			{
+				case 11: break;
+				case 46:
+				case 237: $c += procPost($p); break;
+				case 247:
+				case 80: procLink($p); $c++; break;
+			}
 		}
 	}
 
