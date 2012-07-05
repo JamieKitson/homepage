@@ -78,11 +78,6 @@ function procLink($l)
 
 	echo '<div class="facebooklink">';
 	$title = $l['attachment']['name'];
-	if (is_array($l['attachment']['media']))
-	{
-		echo '<img class="facebooklink" src="'.htmlentities($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
-	}
-	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES).'</div>';
 	if (array_key_exists('href', $l['attachment']))
 	{
 		$href = $l['attachment']['href'];
@@ -101,6 +96,13 @@ function procLink($l)
 	{
 		$href = $l['permalink'];
 	}
+	if (is_array($l['attachment']['media']))
+	{
+		echo '<a class="facebooklink" href="'.htmlspecialchars($href).'">';
+		echo '<img class="facebooklink" src="'.htmlentities($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
+		echo '</a>';
+	}
+	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES).'</div>';
 	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($title).'</a></div>';
 	echo '<div class="facebooklinksite">'.htmlspecialchars($l['attachment']['caption']).'</div>';
 	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l['attachment']['description']).'</div>';
