@@ -19,6 +19,7 @@ fb($facebook);
 46 - post
 80 - link
 237 - flickr, twitter
+247 - facebook photos
 none - prof pic, note
 11 - group
 56 - wall post
@@ -29,8 +30,12 @@ function fb($facebook)
 {
 
 	$facebook->clear_cookie_state();
-	$b = $facebook->api_client->stream_get('835135340','835135340','','', 30, '','');
+	$b = $facebook->api_client->stream_get('835135340','835135340','','', 100, '','');
+
+// echo print_r($b);
+
 	$c = 0;
+
 	for ($i = 0; $c < 10 && $i < count($b['posts']); $i++)
 	{
 		$p = $b['posts'][$i];
@@ -39,6 +44,7 @@ function fb($facebook)
 			case 11: break;
 			case 46:
 			case 237: $c += procPost($p); break;
+			case 247:
 			case 80: procLink($p); $c++; break;
 		}
 	}
@@ -71,22 +77,29 @@ function procLink($l)
 // print_r($l);
 
 	echo '<div class="facebooklink">';
-	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES).'</div>';
 	$title = $l['attachment']['name'];
 	if (is_array($l['attachment']['media']))
 	{
 		echo '<img class="facebooklink" src="'.htmlentities($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
 	}
-	$href = $l['attachment']['href'];
-	$q = parse_url($href, PHP_URL_QUERY);
-	foreach(explode('&', $q) as $u)
+	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES).'</div>';
+	if (array_key_exists('href', $l['attachment']))
 	{
-		$v = explode('=', $u);
-		if ($v[0] == 'u')
+		$href = $l['attachment']['href'];
+		$q = parse_url($href, PHP_URL_QUERY);
+		foreach(explode('&', $q) as $u)
 		{
-			$href = urldecode(urldecode($v[1]));
-			break;
+			$v = explode('=', $u);
+			if ($v[0] == 'u')
+			{
+				$href = urldecode(urldecode($v[1]));
+				break;
+			}
 		}
+	}
+	else
+	{
+		$href = $l['permalink'];
 	}
 	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($title).'</a></div>';
 	echo '<div class="facebooklinksite">'.htmlspecialchars($l['attachment']['caption']).'</div>';
