@@ -9,7 +9,11 @@
         {
                 echo '<div class="twitterpost">';
                 $urls = $i->entities->urls;
-                $status = str_replace($urls->url->url, $urls->url->expanded_url, $i->text);
+		$status = $i->text;
+		foreach($urls->url as $u)
+		{
+                	$status = str_replace($u->url, $u->expanded_url, $status);
+		}
                 echo linkify_twitter_status($status);
                 echo '<div class="twitterdate">';
                 echo statusLink($i->id, 'jamiekitson', date('D M d H:i', strtotime($i->created_at)));
