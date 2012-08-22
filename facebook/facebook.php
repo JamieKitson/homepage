@@ -30,7 +30,7 @@ function fb($facebook)
 {
 
 	$facebook->clear_cookie_state();
-	$b = $facebook->api_client->stream_get('835135340','835135340','','', 100, '','');
+	$b = $facebook->api_client->stream_get('835135340', '835135340','','', 100, '','');
 
 // echo print_r($b);
 
@@ -41,13 +41,15 @@ function fb($facebook)
 		$p = $b['posts'][$i];
 		if ($p['actor_id'] == '835135340')
 		{
+			if ($p['attribution'] == 'Twitter')
+			        $p['type'] = 46;
+
 			switch ($p['type']) 
 			{
-				case 11: break;
-				case 46:
-				case 237: $c += procPost($p); break;
+				case 46: $c += procPost($p); break;
+				case 237: 
 				case 247:
-				case 80: procLink($p); $c++; break;
+				case 80: $c += procLink($p); break;
 			}
 		}
 	}
@@ -78,6 +80,9 @@ function procLink($l)
 {
 
 // print_r($l);
+
+	if (($l['attribution'] == 'Twitter' || $l['attribution'] == 'Yahoo!') && $l['comments']['count'] == 0)
+		return 0;
 
 	echo '<div class="facebooklink">';
 	$title = $l['attachment']['name'];
@@ -111,6 +116,7 @@ function procLink($l)
 	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l['attachment']['description']).'</div>';
 	faceDate($l);
 	echo "</div>\n";
+	return 1;
 }
 
 function faceDate($l)
