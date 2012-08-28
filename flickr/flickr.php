@@ -3,11 +3,13 @@
 function flickrCall($params, $sign = true)
 {
 
-	$params['api_key']      = '91635246b156193b6ed2a50259d83567';
+	$params['api_key']      = trim(file_get_contents(dirname(__FILE__).'/key'));;
 	$params['format']       = 'php_serial';
 	$params['per_page']     =  20;
 	$params['extras']	= 'owner_name';
 	$params['sort']		= 'date-posted-desc';
+
+	$secret = trim(file_get_contents(dirname(__FILE__).'/secret'));
 
 	if ($sign)
 		$params['auth_token'] = trim(file_get_contents(dirname(__FILE__).'/token'));
@@ -21,7 +23,7 @@ function flickrCall($params, $sign = true)
 
 	sort($encoded_params);
 	$p = implode('&', $encoded_params);
-	$m = md5("9896da509d80fd2e".str_replace(array("&", "="), "",$p));
+	$m = md5($secret.str_replace(array("&", "="), "",$p));
 
 	$url = "http://api.flickr.com/services/rest/?$p&api_sig=$m";
 
