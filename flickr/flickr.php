@@ -3,7 +3,7 @@
 function flickrCall($params, $sign = true)
 {
 
-	$params['api_key']      = '91635246b156193b6ed2a50259d83567';
+	$params['api_key']      = 'aa86e4774d7520f7373e8615ba5b7e00';
 	$params['format']       = 'php_serial';
 	$params['per_page']     =  20;
 	$params['extras']	= 'owner_name';
