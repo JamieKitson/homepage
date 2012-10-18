@@ -113,7 +113,7 @@ function procLink($l)
 		echo '<img class="facebooklink" src="'.htmlentities($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
 		echo '</a>';
 	}
-	echo '<div class="facebooklinkcomment">'.htmlentities($l['message'], ENT_QUOTES).'</div>';
+	echo '<div class="facebooklinkcomment">'.htmlspecialchars($l['message']).'</div>';
 	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($title).'</a></div>';
 	echo '<div class="facebooklinksite">'.htmlspecialchars($l['attachment']['caption']).'</div>';
 	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l['attachment']['description']).'</div>';
