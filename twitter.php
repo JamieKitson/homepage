@@ -7,13 +7,23 @@
         $xml = simplexml_load_string(@file_get_contents($url));
         foreach($xml->status as $i)
         {
+		$status = "";
+		if ($i->retweeted_status)
+		{
+			$i = $i->retweeted_status;
+			$status = "RT @".$i->user->screen_name.": ";
+		}
                 echo '<div class="twitterpost">';
-                $urls = $i->entities->urls;
-		$status = $i->text;
-		foreach($urls->url as $u)
+		$status .= $i->text;
+		foreach($i->entities->urls->url as $u)
 		{
                 	$status = str_replace($u->url, $u->expanded_url, $status);
 		}
+		if ($i->entities->media)
+			foreach($i->entities->media->creative as $u)
+			{
+				$status = str_replace($u->url, $u->expanded_url, $status);
+			}
                 echo linkify_twitter_status($status);
                 echo '<div class="twitterdate">';
                 echo statusLink($i->id, 'jamiekitson', date('D M d H:i', strtotime($i->created_at)));
