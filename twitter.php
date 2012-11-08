@@ -17,15 +17,9 @@
 		}
                 echo '<div class="twitterpost">';
 		$status .= $i->text;
-		foreach($i->entities->urls->url as $u)
-		{
-                	$status = str_replace($u->url, $u->expanded_url, $status);
-		}
+		expandURLs($i->entities->urls->url, $status);
 		if ($i->entities->media)
-			foreach($i->entities->media->creative as $u)
-			{
-				$status = str_replace($u->url, $u->expanded_url, $status);
-			}
+			expandURLs($i->entities->media->creative, $status);
                 echo linkify_twitter_status($status);
                 echo '<div class="twitterdate">';
                 echo statusLink($id, 'jamiekitson', date('D M d H:i', $date));
@@ -37,6 +31,14 @@
 function statusLink($statusID, $userName, $linkText)
 {
         return '<a class="twitterdate" href="http://twitter.com/'.$userName.'/statuses/'.$statusID.'">'.$linkText.'</a> ';
+}
+
+function expandURLs($urls, &$stat)
+{
+	foreach($urls as $url)
+	{
+		$stat = str_replace($url->url, $url->expanded_url, $stat);
+	}
 }
 
 ?>
