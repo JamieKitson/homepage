@@ -7,6 +7,8 @@
         $xml = simplexml_load_string(@file_get_contents($url));
         foreach($xml->status as $i)
         {
+		$date = strtotime($i->created_at);
+		$id = $i->id;
 		$status = "";
 		if ($i->retweeted_status)
 		{
@@ -26,7 +28,7 @@
 			}
                 echo linkify_twitter_status($status);
                 echo '<div class="twitterdate">';
-                echo statusLink($i->id, 'jamiekitson', date('D M d H:i', strtotime($i->created_at)));
+                echo statusLink($id, 'jamiekitson', date('D M d H:i', $date));
                 if ($i->in_reply_to_status_id != '')
                         echo statusLink($i->in_reply_to_status_id, $i->in_reply_to_screen_name, 'In reply to '.$i->in_reply_to_screen_name);
                 echo "</div></div>\n";
