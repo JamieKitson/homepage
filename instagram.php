@@ -1,7 +1,9 @@
 <?
 
-//	$url = 'https://api.instagram.com/v1/users/self/feed?access_token=34072014.0cc56bb.f86b7ce69b2c4773afdc8ad5aaaf9ba9';
-	$url='https://api.instagram.com/v1/users/34072014/media/recent/?access_token=34072014.0cc56bb.f86b7ce69b2c4773afdc8ad5aaaf9ba9';
+	$f = file(dirname(__FILE__).'/instagramToken.php');
+	$token = trim($f[1]);
+
+	$url='https://api.instagram.com/v1/users/34072014/media/recent/?access_token='.$token;
 
 	$rsp = @file_get_contents($url);
 
