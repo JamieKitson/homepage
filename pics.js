@@ -1,24 +1,31 @@
 
-var id = 0;
+// var id = 0;
 
-function updateText()
+function updateText(id)
 {
-	var l = document.getElementById('flickrmorelink');
+	if (id < 4)
+	{
+		setFlickClick(id + 1);
+		var l = document.getElementById('flickrmorelink');
+	}
+	else
+		var l = document.getElementById('instagrammorelink');
        	switch(id) {
                	case 1: l.innerHTML = '[+]Even more from flickr...'; break;
                 case 2: l.innerHTML = '[+]More more more from flickr...'; break;
-       	        case 3: l.style.display = 'none';
+       	        case 3:
+		case 4: l.style.display = 'none'; break;
         }
 }
 
-function get()
+function get(event)
 {
-	id += 1;
+	id = event.data.id;
 	var params = document.getElementById('flickrmore' + id + 'params').innerHTML;
 	// alert('/flickr/flickrSearch.php?' + unescape(params));
 	$.ajax({
-		url: '/flickr/flickrSearch.php?f=flickr' + params,
-		success: showPics,
+		url: '/flickr/flickrSearch.php?f=' + params,
+		success: function(xml) { showPics(xml, id) },
 		error: 
 				function (xhr, textStatus, thrownError) 
 				{ 
@@ -28,11 +35,11 @@ function get()
 	return false;
 }
 
-function showPics(pics)
+function showPics(pics, id)
 {
 	// alert(pics);
 	$('#flickrmore' + id + 'params').html(pics);
-     	$('#flickrmore' + id).slideDown('slow', updateText);
+     	$('#flickrmore' + id).slideDown('slow', function() { updateText(id); } );
 }
 
 function toggle(e)
@@ -48,9 +55,16 @@ function toggle(e)
 	}
 }
 
+function setFlickClick(aid)
+{
+	$('#flickrmorelink').unbind('click');
+	$('#flickrmorelink').click( { id : aid }, get );
+}
+
 $(document).ready(function() 
 {
-	$('#flickrmorelink').click(get);
+	setFlickClick(1);
+	$('#instagrammorelink').click( { id : 4 }, get );
 	$('h2').prepend('<span class="control">[-] </span>');
 	$('h2 a').css('position', 'absolute');
 	$('.control').click( function() { toggle($(this)); } );

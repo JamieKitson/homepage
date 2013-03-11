@@ -42,7 +42,7 @@ div.flickrmore {
 	display: none;
 }
 
-a#flickrmorelink {
+a.flickrmorelink {
 	font-size: 90%;
 }
 

@@ -28,7 +28,7 @@ Mongol Rally: <a href="http://geekout.org.uk">Team Geekout</a>
 <div class="content" id="flickr">
 <h2><a href="http://www.flickr.com/photos/jamiekitson">Flickr</a></h2>
 <div id="flickrcontainer" class="container">
-<h3><a href="http://www.flickr.com/photos/jamiekitson">My Photos</a></h3>
+<!-- h3><a href="http://www.flickr.com/photos/jamiekitson">My Photos</a></h3 -->
 <?php
 
 include_once 'cache.php';
@@ -38,19 +38,19 @@ cachedHTML('flickr/flickrMine.php');
 ?>
 <div id="flickrmore1" class="flickrmore"><div id="flickrmore1inner" class="flickrmoreinner">
 <h3><a href="http://www.flickr.com/photos/tags/jamiekitson">Photos of Me Me Me</a></h3>
-<div id="flickrmore1params">Me</div></div></div>
+<div id="flickrmore1params">flickrMe</div></div></div>
 
 <div id="flickrmore2" class="flickrmore"><div id="flickrmore2inner" class="flickrmoreinner">
 <h3><a href="http://www.flickr.com/Photos/jamiekitson/tags/myfavs/">My Own Favs</a></h3>
-<div id="flickrmore2params">OwnFavs</div></div></div>
+<div id="flickrmore2params">flickrOwnFavs</div></div></div>
 
 <div id="flickrmore3" class="flickrmore"><div id="flickrmore3inner" class="flickrmoreinner">
 </div>
 <h3><a href="http://www.flickr.com/photos/jamiekitson/favorites/">My Favs</a></h3>
-<div id="flickrmore3params">Favs</div></div>
+<div id="flickrmore3params">flickrFavs</div></div>
 
 <div id="flickrlink">
-<a href="flickr" id="flickrmorelink">[+]More from flickr...</a>
+<a href="flickr" class="flickrmorelink" id="flickrmorelink">[+]More from flickr...</a>
 </div>
 </div>
 </div>
@@ -60,10 +60,19 @@ cachedHTML('flickr/flickrMine.php');
 <div id="instagramcontainer" class="container">
 <?php
 
-cachedHTML('instagram.php');
+cachedHTML('instagramOwn.php');
 
 ?>
 </div>
+
+<div id="flickrmore4" class="flickrmore"><div id="flickrmore1inner" class="flickrmoreinner">
+<h3>My Favs</h3>
+<div id="flickrmore4params">instagramFavs</div></div></div>
+
+<div id="flickrlink">
+<a href="#" class="flickrmorelink" id="instagrammorelink">[+]My favourites...</a>
+</div>
+
 </div>
 
 <!-- div class="content" id="geekout">
