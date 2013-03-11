@@ -63,7 +63,6 @@ cachedHTML('flickr/flickrMine.php');
 cachedHTML('instagramOwn.php');
 
 ?>
-</div>
 
 <div id="flickrmore4" class="flickrmore"><div id="flickrmore1inner" class="flickrmoreinner">
 <h3>My Favs</h3>
@@ -73,6 +72,7 @@ cachedHTML('instagramOwn.php');
 <a href="#" class="flickrmorelink" id="instagrammorelink">[+]My favourites...</a>
 </div>
 
+</div>
 </div>
 
 <!-- div class="content" id="geekout">
