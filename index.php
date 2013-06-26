@@ -11,6 +11,8 @@
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="pics.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Description" content="The Jamie Kitson Portal: The latest photos from Flickr and Instagram, posts from Twitter, Facebook and his blog and videos from YouTube.">
+<meta name="keywords" content="jamie,kitson,jamie kitson,jamiekitson">
 </head>
 <body>
 
