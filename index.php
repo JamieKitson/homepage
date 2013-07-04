@@ -62,7 +62,7 @@ cachedHTML('flickr/flickrMine.php');
 <div id="instagramcontainer" class="container">
 <?php
 
-cachedHTML('instagramOwn.php');
+cachedHTML('flickr/instagramOwn.php');
 
 ?>
 
