@@ -1,25 +1,33 @@
 <?php
 
         include_once 'twitterLink.php';
+	include 'twittertoken.php';
 
-        $url = 'http://api.twitter.com/1/statuses/user_timeline.xml?screen_name=jamiekitson&count=10&include_rts=1&include_entities=1';
+	$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=jamiekitson&count=10&include_rts=1&include_entities=1';
 
-        $xml = simplexml_load_string(@file_get_contents($url));
-        foreach($xml->status as $i)
+	$ch = curl_init( $url );
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt( $ch, CURLOPT_HTTPHEADER, array("Authorization: Bearer " . $twittertoken));
+
+	$response = curl_exec( $ch );
+
+	$xml = json_decode($response);
+
+        foreach($xml as $i)
         {
 		$date = strtotime($i->created_at);
 		$id = $i->id;
 		$status = "";
-		if ($i->retweeted_status)
+		if (property_exists($i, "retweeted_status"))
 		{
 			$i = $i->retweeted_status;
 			$status = "RT @".$i->user->screen_name.": ";
 		}
                 echo '<div class="twitterpost">';
 		$status .= $i->text;
-		expandURLs($i->entities->urls->url, $status);
-		if ($i->entities->media)
-			expandURLs($i->entities->media->creative, $status);
+		expandURLs($i->entities->urls, $status);
+		if (property_exists($i->entities, "media"))
+			expandURLs($i->entities->media, $status);
                 echo linkify_twitter_status($status);
                 echo '<div class="twitterdate">';
                 echo statusLink($id, 'jamiekitson', date('D M d H:i', $date));
