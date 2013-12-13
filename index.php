@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="openid.server" href="http://pip.verisignlabs.com/server" />
+<link rel="openid.delegate" href="http://jamiekitson.pip.verisignlabs.com" />
+<link rel="openid2.provider" href="http://pip.verisignlabs.com/server" />
+<link rel="openid2.local_id" href="http://jamiekitson.pip.verisignlabs.com" />
+<meta http-equiv="X-XRDS-Location" content="http://pip.verisignlabs.com/user/jamiekitson/yadisxrds" />
+
+<!-- 
 <link rel="openid.server" href="http://www.myopenid.com/server" />
 <link rel="openid.delegate" href="http://jamiekitson.myopenid.com/" />
 <link rel="openid2.local_id" href="http://jamiekitson.myopenid.com" />
 <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+-->
 <!-- meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=jamiekitson.myopenid.com" / -->
+
 <title>Jamie Kitson</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -66,11 +76,11 @@ cachedHTML('flickr/instagramOwn.php');
 
 ?>
 
-<div id="flickrmore4" class="flickrmore"><div id="flickrmore1inner" class="flickrmoreinner">
+<div id="flickrmore4" class="flickrmore"><div id="flickrmore4inner" class="flickrmoreinner">
 <h3>My Favs</h3>
 <div id="flickrmore4params">instagramFavs</div></div></div>
 
-<div id="flickrlink">
+<div id="instagramlink">
 <a href="#" class="flickrmorelink" id="instagrammorelink">[+]My favourites...</a>
 </div>
 
