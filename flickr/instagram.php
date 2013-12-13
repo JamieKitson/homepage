@@ -5,7 +5,7 @@ function instagram($url)
 	$f = file(dirname(__FILE__).'/instagramToken.php');
 	$token = trim($f[1]);
 
-	$url.='?access_token='.$token;
+	$url.='?count=20&access_token='.$token;
 
 	$rsp = @file_get_contents($url);
 
