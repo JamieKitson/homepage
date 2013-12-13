@@ -188,15 +188,20 @@ div.facebookcomments {
 }
 
 div.facebookcomments a {
-	background-image: url("https://s-static.ak.facebook.com/rsrc.php/v1/y9/r/M1QAaMx-pAh.png");
+	background-image: url("http://facebook.com/rsrc.php/v2/yY/r/tN0Fmh0Uc5I.png");
 	background-repeat: no-repeat;
-	background-position: -169px -91px;
+	background-position: -225px -288px;
 	color: #3B5998;
 	display: block;
 	font-size: 90%;
 	text-decoration: none;
-	padding-left: 2em;
+	padding-left: 16px;
 	height: 16px;
+}
+
+div.facebookcomments a span.view {
+	background-color: #ECEFF5;
+    padding: 4px;
 }
 
 div.clear {
