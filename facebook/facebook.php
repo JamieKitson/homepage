@@ -129,8 +129,8 @@ function faceDate($l)
 	echo '<div class="clear"></div>'; // for float: left images
 	if ($l['comments']['count'] > 0)
 	{
-		echo '<div class="facebookcomments"><a href="'.htmlentities($l['permalink']).'">View ';
-		echo $l['comments']['count'].' comments</a></div>';
+		echo '<div class="facebookcomments"><a href="'.htmlentities($l['permalink']).'"><span class="view">View ';
+		echo $l['comments']['count'].' comments</span></a></div>';
 	}
 }
 
