@@ -3,13 +3,14 @@
 
 function updateText(id)
 {
+	var l;
 	if (id < 4)
 	{
 		setFlickClick(id + 1);
-		var l = document.getElementById('flickrmorelink');
+		l = document.getElementById('flickrmorelink');
 	}
 	else
-		var l = document.getElementById('instagrammorelink');
+		l = document.getElementById('instagrammorelink');
        	switch(id) {
                	case 1: l.innerHTML = '[+]Even more from flickr...'; break;
                 case 2: l.innerHTML = '[+]More more more from flickr...'; break;
