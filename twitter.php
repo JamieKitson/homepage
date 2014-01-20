@@ -29,15 +29,18 @@
 			expandURLs($tweet->entities->media, $status);
                 echo linkify_twitter_status($status);
                 echo '<div class="twitterdate">';
-                echo statusLink($tweet->id, 'jamiekitson', date('D M d H:i', $date));
+                echo statusLink($tweet->id_str, 'jamiekitson', date('D M d H:i', $date));
                 if ($tweet->in_reply_to_status_id != '')
-                        echo statusLink($tweet->in_reply_to_status_id, $tweet->in_reply_to_screen_name, 'In reply to '.$tweet->in_reply_to_screen_name);
+                {
+                        echo statusLink($tweet->in_reply_to_status_id_str, $tweet->in_reply_to_screen_name, 'In reply to '.$tweet->in_reply_to_screen_name);
+                }
                 echo "</div></div>\n";
         }
 
 function statusLink($statusID, $userName, $linkText)
 {
-        return '<a class="twitterdate" href="http://twitter.com/'.$userName.'/statuses/'.$statusID.'">'.$linkText.'</a> ';
+        return sprintf('<a class="twitterdate" href="http://twitter.com/%s/statuses/%s">%s</a> ',
+            $userName, $statusID, $linkText);
 }
 
 function expandURLs($urls, &$stat)
