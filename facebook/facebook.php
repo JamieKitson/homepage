@@ -84,7 +84,7 @@ function procLink($l)
 
 // print_r($l);
 
-	if (($l['attribution'] == 'Twitter' || $l['attribution'] == 'Yahoo!') && $l['comments']['count'] == 0)
+	if (($l['attribution'] == 'Flickr' || $l['attribution'] == 'Twitter' || $l['attribution'] == 'Yahoo!') && $l['comments']['count'] == 0)
 		return 0;
 
 	echo '<div class="facebooklink">';
