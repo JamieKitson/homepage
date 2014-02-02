@@ -125,7 +125,7 @@ function procLink($l)
 function faceDate($l)
 {
 	echo '<div class="facebookdate"><a href="'.htmlentities($l['permalink']).'">';
-	echo date('D j M \a\t H:i', $l['created_time'] + 8*60*60).'</a></div>';
+	echo date('D j M \a\t H:i', $l['created_time']).'</a></div>';
 	echo '<div class="clear"></div>'; // for float: left images
 	if ($l['comments']['count'] > 0)
 	{
