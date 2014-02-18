@@ -73,7 +73,8 @@ function procPost($p)
 	if (($p['attribution'] == 'Twitter' || $p['attribution'] == 'Yahoo!') && $p['comments']['count'] == 0)
 		return 0;
 	echo '<div class="facebookstatus">';
-	echo linkify_twitter_status($p['message']);
+    $status_text = htmlentities($p['message'], ENT_QUOTES, 'UTF-8');
+	echo linkify_twitter_status($status_text);
 	faceDate($p);
 	echo "</div>\n";
 	return 1;

@@ -2,8 +2,6 @@
 
 function linkify_twitter_status($status_text)
 {
-  $status_text = htmlentities($status_text, ENT_QUOTES, 'UTF-8');
-
   // linkify URLs
   $status_text = preg_replace(
     '/(https?:\/\/\S+)/',
