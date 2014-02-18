@@ -44,12 +44,13 @@ function fb($facebook)
 		$p = $b['posts'][$i];
 		if ($p['actor_id'] == '835135340')
 		{
-			if ($p['attribution'] == 'Twitter')
-			        $p['type'] = 46;
+            // Don't treat tweets as links
+//			if ($p['attribution'] == 'Twitter')
+//			        $p['type'] = 46;
 
 			switch ($p['type']) 
 			{
-				case 46: $c += procPost($p); break;
+				case 46: // $c += procPost($p); break;
 				case 237: 
 				case 247:
 				case 80: $c += procLink($p); break;
@@ -68,12 +69,20 @@ function procComments($p)
 	}
 }
 
+function ignorePost($p)
+{
+    $ignore = Array('Flickr', 'Twitter', 'Yahoo!');
+	if (in_array($p['attribution'], $ignore) && $p['comments']['count'] == 0)
+		return true;
+    return false;
+}
+
 function procPost($p)
 {
-	if (($p['attribution'] == 'Twitter' || $p['attribution'] == 'Yahoo!') && $p['comments']['count'] == 0)
+	if (ignorePost($p))
 		return 0;
 	echo '<div class="facebookstatus">';
-    $status_text = htmlentities($p['message'], ENT_QUOTES, 'UTF-8');
+    $status_text = myEncode($p['message']);
 	echo linkify_twitter_status($status_text);
 	faceDate($p);
 	echo "</div>\n";
@@ -85,11 +94,11 @@ function procLink($l)
 
 // print_r($l);
 
-	if (($l['attribution'] == 'Flickr' || $l['attribution'] == 'Twitter' || $l['attribution'] == 'Yahoo!') && $l['comments']['count'] == 0)
+	if (ignorePost($l))
 		return 0;
 
 	echo '<div class="facebooklink">';
-	$title = htmlspecialchars($l['attachment']['name']);
+	$title = myEncode($l['attachment']['name']);
 	if (array_key_exists('href', $l['attachment']))
 	{
 		$href = $l['attachment']['href'];
@@ -110,27 +119,32 @@ function procLink($l)
 	}
 	if (is_array($l['attachment']['media']))
 	{
-		echo '<a class="facebooklink" href="'.htmlspecialchars($href).'">';
-		echo '<img class="facebooklink" src="'.htmlentities($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
+		echo '<a class="facebooklink" href="'.myEncode($href).'">';
+		echo '<img class="facebooklink" src="'.myEncode($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
 		echo '</a>';
 	}
-	echo '<div class="facebooklinkcomment">'.htmlspecialchars($l['message']).'</div>';
-	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.$title.'</a></div>';
-	echo '<div class="facebooklinksite">'.htmlspecialchars($l['attachment']['caption']).'</div>';
-	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l['attachment']['description']).'</div>';
+	echo '<div class="facebooklinkcomment">'.myEncode($l['message']).'</div>';
+	echo '<div><a class="facebooklink" href="'.myEncode($href).'">'.$title.'</a></div>';
+	echo '<div class="facebooklinksite">'.myEncode($l['attachment']['caption']).'</div>';
+	echo '<div class="facebooklinkdesc">'.myEncode($l['attachment']['description']).'</div>';
 	faceDate($l);
 	echo "</div>\n";
 	return 1;
 }
 
+function myEncode($s)
+{
+    return htmlentities($s, ENT_QUOTES, 'UTF-8');
+}
+
 function faceDate($l)
 {
-	echo '<div class="facebookdate"><a href="'.htmlentities($l['permalink']).'">';
+	echo '<div class="facebookdate"><a href="'.myEncode($l['permalink']).'">';
 	echo date('D j M \a\t H:i', $l['created_time']).'</a></div>';
 	echo '<div class="clear"></div>'; // for float: left images
 	if ($l['comments']['count'] > 0)
 	{
-		echo '<div class="facebookcomments"><a href="'.htmlentities($l['permalink']).'"><span class="view">View ';
+		echo '<div class="facebookcomments"><a href="'.myEncode($l['permalink']).'"><span class="view">View ';
 		echo $l['comments']['count'].' comments</span></a></div>';
 	}
 }
