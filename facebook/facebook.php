@@ -89,7 +89,7 @@ function procLink($l)
 		return 0;
 
 	echo '<div class="facebooklink">';
-	$title = $l['attachment']['name'];
+	$title = htmlspecialchars($l['attachment']['name']);
 	if (array_key_exists('href', $l['attachment']))
 	{
 		$href = $l['attachment']['href'];
@@ -115,7 +115,7 @@ function procLink($l)
 		echo '</a>';
 	}
 	echo '<div class="facebooklinkcomment">'.htmlspecialchars($l['message']).'</div>';
-	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.htmlspecialchars($title).'</a></div>';
+	echo '<div><a class="facebooklink" href="'.htmlspecialchars($href).'">'.$title.'</a></div>';
 	echo '<div class="facebooklinksite">'.htmlspecialchars($l['attachment']['caption']).'</div>';
 	echo '<div class="facebooklinkdesc">'.htmlspecialchars($l['attachment']['description']).'</div>';
 	faceDate($l);
