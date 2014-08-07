@@ -98,7 +98,8 @@ function procLink($l)
 		return 0;
 
 	echo '<div class="facebooklink">';
-	$title = myEncode($l['attachment']['name']);
+    if (array_key_exists('name', $l['attachment']))
+	    $title = myEncode($l['attachment']['name']);
 	if (array_key_exists('href', $l['attachment']))
 	{
 		$href = $l['attachment']['href'];
@@ -117,16 +118,18 @@ function procLink($l)
 	{
 		$href = $l['permalink'];
 	}
-	if (is_array($l['attachment']['media']))
+	if (array_key_exists('media', $l['attachment']) && is_array($l['attachment']['media']))
 	{
 		echo '<a class="facebooklink" href="'.myEncode($href).'">';
 		echo '<img class="facebooklink" src="'.myEncode($l['attachment']['media'][0]['src']).'" alt="'.$title.'">';
 		echo '</a>';
 	}
 	echo '<div class="facebooklinkcomment">'.myEncode($l['message']).'</div>';
-	echo '<div><a class="facebooklink" href="'.myEncode($href).'">'.$title.'</a></div>';
-	echo '<div class="facebooklinksite">'.myEncode($l['attachment']['caption']).'</div>';
-	echo '<div class="facebooklinkdesc">'.myEncode($l['attachment']['description']).'</div>';
+    if (isset($title))
+    	echo '<div><a class="facebooklink" href="'.myEncode($href).'">'.$title.'</a></div>';
+    if (array_key_exists('caption', $l['attachment']))
+	    echo '<div class="facebooklinksite">'.myEncode($l['attachment']['caption']).'</div>';
+    echo '<div class="facebooklinkdesc">'.myEncode($l['attachment']['description']).'</div>';
 	faceDate($l);
 	echo "</div>\n";
 	return 1;
