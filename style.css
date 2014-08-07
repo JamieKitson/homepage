@@ -184,18 +184,18 @@ div#facebook a:hover {
 
 div.facebookcomments {
 	background-color: #ECEFF5;
-	padding: 0.4em;
+	padding: 0.4em 8px;
 }
 
 div.facebookcomments a {
-	background-image: url("http://facebook.com/rsrc.php/v2/yY/r/tN0Fmh0Uc5I.png");
+	background-image: url("http://facebook.com/rsrc.php/v2/yf/r/QUjZhHHkifu.png");
 	background-repeat: no-repeat;
-	background-position: -225px -288px;
+	background-position: -131px -170px;
 	color: #3B5998;
 	display: block;
 	font-size: 90%;
 	text-decoration: none;
-	padding-left: 16px;
+	padding-left: 14px;
 	height: 16px;
 }
 
