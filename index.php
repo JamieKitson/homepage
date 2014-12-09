@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<div class="top" id="top">
+<header class="top" id="top">
 <a href="http://www.flickr.com/photos/jamiekitson/139027024/">
 	<img src="http://farm5.static.flickr.com/4069/4274051526_071936111b_t.jpg" id="profilepic" alt="Jamie Kitson">
 </a>
@@ -33,9 +33,9 @@
 <a href="http://jamiekitson.com">CV</a>
 <br>
 Mongol Rally: <a href="http://geekout.org.uk">Team Geekout</a> 
-</div>
+</header>
 
-<div class="content" id="flickr">
+<section class="content" id="flickr">
 <h2><a href="http://www.flickr.com/photos/jamiekitson">Flickr</a></h2>
 <div id="flickrcontainer" class="container">
 <!-- h3><a href="http://www.flickr.com/photos/jamiekitson">My Photos</a></h3 -->
@@ -63,9 +63,9 @@ cachedHTML('flickr/flickrMine.php');
 <a href="flickr" class="flickrmorelink" id="flickrmorelink">[+]More from flickr...</a>
 </div>
 </div>
-</div>
+</section>
 
-<div class="content" id="instagram">
+<section class="content" id="instagram">
 <h2><a href="http://instagram.com/jamiekitson/">Instagram</a></h2>
 <div id="instagramcontainer" class="container">
 <?php
@@ -83,7 +83,7 @@ cachedHTML('flickr/instagramOwn.php');
 </div>
 
 </div>
-</div>
+</section>
 
 <!-- div class="content" id="geekout">
 <h2><a href="http://geekout.org.uk">Team Geekout</a></h2>
@@ -96,7 +96,7 @@ cachedHTML('flickr/instagramOwn.php');
 </div></div>
 </div -->
 
-<div class="content" id="twitter">
+<section class="content" id="twitter">
 <h2><a href="http://twitter.com/jamiekitson">Twitter</a></h2>
 <div id="twittercontainer" class="container">
 <?php
@@ -105,9 +105,9 @@ cachedHTML('twitter.php');
 
 ?>
 </div>
-</div>
+</section>
 
-<div class="content" id="youtube">
+<section class="content" id="youtube">
 <h2><a href="http://youtube.com/jamiekitson">YouTube</a></h2>
 <div id="ytcontainer" class="container">
 <?php
@@ -116,9 +116,9 @@ cachedHTML('youtube.php');
 
 ?>
 </div>
-</div>
+</section>
 
-<div class="content" id="blog">
+<section class="content" id="blog">
 <h2><a href="http://blog.jamiek.it">Blog</a></h2>
 <div id="blogouter" class="container"><div id="bloginner">
 <?php
@@ -127,9 +127,9 @@ cachedHTML('blog.php');
 
 ?>
 </div></div>
-</div>
+</section>
 
-<div class="content" id="facebook">
+<section class="content" id="facebook">
 <h2><a href="http://www.facebook.com/mardybumhead">Facebook</a></h2>
 <div id="facebookcontainer" class="container">
 <?php 
@@ -138,7 +138,7 @@ cachedHTML('facebook/facebook.php');
 
 ?>
 </div>
-</div>
+</section>
 
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="pics.js"></script>
