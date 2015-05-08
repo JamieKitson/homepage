@@ -7,6 +7,7 @@
 <link rel="openid2.provider" href="http://pip.verisignlabs.com/server" />
 <link rel="openid2.local_id" href="http://jamiekitson.pip.verisignlabs.com" />
 <meta http-equiv="X-XRDS-Location" content="http://pip.verisignlabs.com/user/jamiekitson/yadisxrds" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- 
 <link rel="openid.server" href="http://www.myopenid.com/server" />
@@ -29,7 +30,7 @@
 	<img src="http://farm5.static.flickr.com/4069/4274051526_071936111b_t.jpg" id="profilepic" alt="Jamie Kitson">
 </a>
 <h1>The Jamie Kitson Portal</h1>
-<a href="&#109;a&#105;&#X6c;&#X0074;&#X6f;&#0058;&#X6a;&#0097;&#0109;&#0105;&#0101;&#00064;k&#X00069;&#116;&#X0074;&#00101;&#0110;&#00045;&#120;&#X2e;&#99;&#111;m">&#X6a;&#0097;&#0109;&#0105;&#0101;&#00064;k&#X00069;&#116;&#X0074;&#00101;&#0110;&#00045;&#120;&#X2e;&#99;&#111;m</a>
+<a href="m&#97;&#105;l&#116;&#111;:&#106;a&#109;&#105;e&#64;kit&#115;o&#110;.&#120;y&#122;">j&#97;&#109;&#105;&#101;&#64;&#107;&#105;&#116;s&#111;n&#46;&#120;&#121;z</a>
 <a href="http://jamiekitson.com">CV</a>
 <br>
 Mongol Rally: <a href="http://geekout.org.uk">Team Geekout</a> 
