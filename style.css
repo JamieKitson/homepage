@@ -17,7 +17,7 @@ h2, h3 {
         font-weight: normal;
 }
 
-div.top br {
+.top br {
 	margin-bottom: 0.5em;
 }
 
@@ -29,11 +29,21 @@ img#profilepic {
 	float: right;
 }
 
-div.content, div#top {
-        margin: 3em 5em 0em 5em;
+@media all and (min-width: 10cm)
+{
+    .content, #top {
+            margin: 3em 5em 0em 5em;
+    }
 }
 
-div.content:last-child {
+@media all and (max-width: 10cm)
+{
+    .content, #top {
+            margin: 1em 2em 0em 2em;
+    }
+}
+
+.content:last-child {
 	margin-bottom: 4em;
 }
 
@@ -178,7 +188,7 @@ a.facebooklink {
 	font-weight: bold;
 }
 
-div#facebook a:hover {
+#facebook a:hover {
 	text-decoration: underline;
 }
 
@@ -188,14 +198,13 @@ div.facebookcomments {
 }
 
 div.facebookcomments a {
-	background-image: url("http://facebook.com/rsrc.php/v2/yf/r/QUjZhHHkifu.png");
+	background-image: url("facebook/comment.png");
 	background-repeat: no-repeat;
-	background-position: -131px -170px;
 	color: #3B5998;
 	display: block;
 	font-size: 90%;
 	text-decoration: none;
-	padding-left: 14px;
+	padding-left: 15px;
 	height: 16px;
 }
 
@@ -294,17 +303,17 @@ a.youtube
 	font-family: arial, sans-serif;
 	max-width: 500px;
 }
-
+/*
 .rel
 {
 	top: -17px;
 	position: relative;
 }
-
+*/
 #youtube img
 {
 	vertical-align: middle;
-	height: 135px;
+	height: 100%;
 }
 
 .yttitle
