@@ -25,7 +25,8 @@ function get(event)
 	var params = document.getElementById('flickrmore' + id + 'params').innerHTML;
 	// alert('/flickr/flickrSearch.php?' + unescape(params));
 	$.ajax({
-		url: '/flickr/flickrSearch.php?f=' + params,
+		//url: '/flickr/flickrSearch.php?f=' + params,
+		url: '/cache/' + params,
 		success: function(xml) { showPics(xml, id) },
 		error: 
 				function (xhr, textStatus, thrownError) 
