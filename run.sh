@@ -10,3 +10,8 @@ do
     php updateCache.php $value.php cache/$value.html
 done
 
+php index.php > index.html
+
+git commit index.html cache/* -m "update cache"
+
+git push
