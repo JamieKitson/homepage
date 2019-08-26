@@ -2,9 +2,11 @@
 
 function cachedHTML($runFile)
 {
+    $basedir = "/srv/www/jamiek.it/";
+
 	$p = pathinfo($runFile);
-	$cacheFile = "/srv/www/jamiek.it/cache/".$p['filename'];
-	$runFile = "/srv/www/jamiek.it/$runFile";
+	$cacheFile = $base."cache/".$p['filename'];
+	$runFile = $base.$runFile;
 
 	$t = microtime(true);
 
@@ -14,7 +16,7 @@ function cachedHTML($runFile)
 	if (!isCached($cacheFile))
 	{
         	echo "\n<!-- updating cache -->\n";
-	        exec("/usr/bin/php /srv/www/jamiek.it/updateCache.php $runFile $cacheFile > /dev/null &");
+	        exec("/usr/bin/php ".$base."updateCache.php $runFile $cacheFile > /dev/null &");
 	        // exec("/usr/bin/php $runFile > $cacheFile &");
 	}
 	printf("<!-- %01.2f -->\n", microtime(true) - $t);
