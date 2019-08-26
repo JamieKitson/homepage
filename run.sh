@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~/homepage
+
 for value in flickrMine flickrFavs flickrOwnFavs flickrMe instagramOwn
 do
     php updateCache.php flickr/$value.php cache/$value.html
