@@ -2,24 +2,26 @@
 
 function cachedHTML($runFile)
 {
-    $basedir = "/srv/www/jamiek.it/";
+    $basedir = "/home/jamie/homepage/";
 
 	$p = pathinfo($runFile);
-	$cacheFile = $base."cache/".$p['filename'];
-	$runFile = $base.$runFile;
+	$cacheFile = $basedir."cache/".$p['filename'].".html";
+	$runFile = $basedir.$runFile;
 
-	$t = microtime(true);
+//	$t = microtime(true);
 
-	echo "\n<!-- getting cache -->\n";
+//	echo "\n<!-- getting cache -->\n";
 	echo file_get_contents($cacheFile);
 
+/*
 	if (!isCached($cacheFile))
 	{
         	echo "\n<!-- updating cache -->\n";
-	        exec("/usr/bin/php ".$base."updateCache.php $runFile $cacheFile > /dev/null &");
+	        exec("/usr/bin/php ".$basedir."updateCache.php $runFile $cacheFile > /dev/null &");
 	        // exec("/usr/bin/php $runFile > $cacheFile &");
 	}
 	printf("<!-- %01.2f -->\n", microtime(true) - $t);
+*/
 }
 
 function isCached($f)
