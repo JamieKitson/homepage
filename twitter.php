@@ -39,7 +39,7 @@
 
 function statusLink($statusID, $userName, $linkText)
 {
-        return sprintf('<a class="twitterdate" href="http://twitter.com/%s/statuses/%s">%s</a> ',
+        return sprintf('<a class="twitterdate" href="https://twitter.com/%s/statuses/%s">%s</a> ',
             $userName, $statusID, $linkText);
 }
 
