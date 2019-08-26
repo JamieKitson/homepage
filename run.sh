@@ -12,6 +12,12 @@ done
 
 php index.php > index.html
 
+cd flickr
+
+php index.php > index.html
+
+cd ..
+
 git commit index.html cache/* -m "update cache"
 
 git push
