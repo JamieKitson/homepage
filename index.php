@@ -34,6 +34,8 @@
 <a href="https://jamiekitson.com">CV</a>
 <br>
 Mongol Rally: <a href="https://geekout.org.uk">Team Geekout</a> 
+<br>
+<a href="https://github.com/JamieKitson">GitHub</a>
 </header>
 
 <section class="content" id="flickr">
