@@ -20,6 +20,6 @@ php index.php > index.html
 
 cd ..
 
-git commit index.html cache/* -m "update cache"
+git commit index.html flickr/index.html cache/* -m "update cache"
 
 git push
