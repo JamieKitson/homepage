@@ -66,12 +66,12 @@ div#flickrcontainer {
 }
 
 div#bloginner {
-	background: transparent url(http://www.blogblog.com/dots/bg_dots2.gif) repeat scroll -100px -100px;
+	background: transparent url(https://www.blogblog.com/dots/bg_dots2.gif) repeat scroll -100px -100px;
 	font-size: 90%;
 }
 
 div#blogouter {
-	background: #FFFFFF url(http://www.blogblog.com/dots/bg_dots.gif) repeat scroll 0% 0px;
+	background: #FFFFFF url(https://www.blogblog.com/dots/bg_dots.gif) repeat scroll 0% 0px;
 	padding: 50px;
 	padding-bottom: 40px;
 	max-width: 700px;
@@ -86,7 +86,7 @@ div#bloginner a {
 div#bloginner h3 {
 	font-family: georgia, serif;
 	font-weight: bold;
-	background: transparent url(http://www.blogblog.com/dots/bg_post_title.gif) no-repeat scroll 0 0.25em;
+	background: transparent url(https://www.blogblog.com/dots/bg_post_title.gif) no-repeat scroll 0 0.25em;
 	padding-left: 45px;
 }
 
