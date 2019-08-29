@@ -3,7 +3,7 @@
 	include_once 'twitterLink.php';
 	include 'twittertoken.php';
 
-	$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=jamiekitson&count=10&include_rts=1&include_entities=1';
+	$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=jamiekitson&count=10&include_rts=1&include_entities=1&tweet_mode=extended';
 
 	$ch = curl_init( $url );
 	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
@@ -23,7 +23,7 @@
 			$status = "RT @".$tweet->user->screen_name.": ";
 		}
                 echo '<div class="twitterpost">';
-		$status .= $tweet->text;
+		$status .= $tweet->full_text;
 		expandURLs($tweet->entities->urls, $status);
 		if (property_exists($tweet->entities, "media"))
 			expandURLs($tweet->entities->media, $status);
