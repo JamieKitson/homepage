@@ -16,7 +16,7 @@
 
 <?php
 
-include '../cache.php';
+include 'cache.php';
 
 // echo flickrSearch(array('user_id' => '77788903@N00'));
 cachedHTML('flickr/flickrMine.php');
