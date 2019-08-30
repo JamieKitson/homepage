@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/homepage
+#cd ~/homepage
 
 for value in flickrMine flickrFavs flickrOwnFavs flickrMe instagramOwn
 do
@@ -20,6 +20,6 @@ php index.php > index.html
 
 cd ..
 
-git commit index.html flickr/index.html cache/* -m "update cache"
+#git commit index.html flickr/index.html cache/* -m "update cache"
 
-git push
+#git push
