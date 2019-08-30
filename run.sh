@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#cd ~/homepage
-
 function secret_file {
 cat > $1 << EOF
 <?php
@@ -30,12 +28,5 @@ done
 
 php index.php > index.html
 
-#cd flickr
-
 php flickr/index.php > flickr/index.html
 
-#cd ..
-
-#git commit index.html flickr/index.html cache/* -m "update cache"
-
-#git push
