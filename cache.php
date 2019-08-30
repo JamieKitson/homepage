@@ -2,7 +2,7 @@
 
 function cachedHTML($runFile)
 {
-    $basedir = "/home/jamie/homepage/";
+    $basedir = "./"; // /home/jamie/homepage/";
 
 	$p = pathinfo($runFile);
 	$cacheFile = $basedir."cache/".$p['filename'].".html";
