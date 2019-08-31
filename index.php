@@ -44,8 +44,6 @@ Mongol Rally: <a href="https://geekout.org.uk">Team Geekout</a>
 <!-- h3><a href="https://www.flickr.com/photos/jamiekitson">My Photos</a></h3 -->
 <?php
 
-include_once 'cache.php';
-
 echo file_get_contents('flickr/flickrMine.html');
 
 ?>
