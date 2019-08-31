@@ -46,7 +46,7 @@ Mongol Rally: <a href="https://geekout.org.uk">Team Geekout</a>
 
 include_once 'cache.php';
 
-cachedHTML('flickr/flickrMine.php');
+echo file_get_contents('flickr/flickrMine.html');
 
 ?>
 <div id="flickrmore1" class="flickrmore"><div id="flickrmore1inner" class="flickrmoreinner">
@@ -73,7 +73,7 @@ cachedHTML('flickr/flickrMine.php');
 <div id="instagramcontainer" class="container">
 <?php
 
-cachedHTML('flickr/instagramOwn.php');
+echo file_get_contents('flickr/instagramOwn.html');
 
 ?>
 
@@ -93,7 +93,7 @@ cachedHTML('flickr/instagramOwn.php');
 <div id="geekoutcontainer" class="container"><div id="">
 <?php
 
-// cachedHTML('geekout.php');
+// echo file_get_contents('geekout.html');
 
 ?>
 </div></div>
@@ -104,7 +104,7 @@ cachedHTML('flickr/instagramOwn.php');
 <div id="twittercontainer" class="container">
 <?php
 
-cachedHTML('twitter.php');
+echo file_get_contents('twitter.html');
 
 ?>
 </div>
@@ -115,7 +115,7 @@ cachedHTML('twitter.php');
 <div id="ytcontainer" class="container">
 <?php
 
-cachedHTML('youtube.php');
+echo file_get_contents('youtube.html');
 
 ?>
 </div>
@@ -126,7 +126,7 @@ cachedHTML('youtube.php');
 <div id="blogouter" class="container"><div id="bloginner">
 <?php
 
-cachedHTML('blog.php');
+echo file_get_contents('blog.html');
 
 ?>
 </div></div>
@@ -137,7 +137,7 @@ cachedHTML('blog.php');
 <div id="facebookcontainer" class="container">
 <?php 
 
-// cachedHTML('facebook/facebook.php');
+// echo file_get_contents('facebook/facebook.html');
 
 ?>
 </div>

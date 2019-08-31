@@ -26,7 +26,7 @@ function get(event)
 	// alert('/flickr/flickrSearch.php?' + unescape(params));
 	$.ajax({
 		//url: '/flickr/flickrSearch.php?f=' + params,
-		url: '/cache/' + params,
+		url: '/flickr/' + params,
 		success: function(xml) { showPics(xml, id) },
 		error: 
 				function (xhr, textStatus, thrownError) 

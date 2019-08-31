@@ -1,19 +1,20 @@
 <?php
 
-// Usage: /usr/bin/php updateCache.php RunFile OutFile
-// RunFile: PHP file to run
-// OutFile: File to write output to
+$t = microtime(true);
 
-    $t = microtime(true);
+ob_start();
 
-    ob_start();
+$base = $argv[1];
 
-    include($argv[1]);
+include($base.'.php');
 
-    $s = ob_get_clean();
+$s = ob_get_clean();
 
-	$s = "\n<!-- cache -->\n$s";
-	$s = $s.sprintf("\n<!-- %01.2f -->\n", microtime(true) - $t);
-	file_put_contents($argv[2], $s);
+if (substr_compare($base, 'index', -5) > 0)
+{
+    $s = "\n<!-- cache -->\n$s";
+    $s = $s.sprintf("\n<!-- %01.2f -->\n", microtime(true) - $t);
+}
+file_put_contents($base.'.html', $s);
 
 ?>

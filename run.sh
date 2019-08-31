@@ -14,19 +14,13 @@ secret_file "flickr/secret.php" "$FLICKR_SECRET"
 secret_file "flickr/instagramToken.php" "$INSTAGRAM_TOKEN"
 secret_file "twittertoken.php" "\$twittertoken = \"$TWITTER_TOKEN\";"
 
-mkdir -p cache
-
-for value in flickrMine flickrFavs flickrOwnFavs flickrMe instagramOwn
+for value in flickrMine flickrFavs flickrOwnFavs flickrMe instagramOwn index
 do
-    php updateCache.php flickr/$value.php cache/$value.html
+    php updateCache.php flickr/$value
 done
 
-for value in twitter blog youtube
+for value in twitter blog youtube index
 do
-    php updateCache.php $value.php cache/$value.html
+    php updateCache.php $value
 done
-
-php index.php > index.html
-
-php flickr/index.php > flickr/index.html
 

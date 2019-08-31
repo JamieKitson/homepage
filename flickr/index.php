@@ -19,22 +19,22 @@
 include 'cache.php';
 
 // echo flickrSearch(array('user_id' => '77788903@N00'));
-cachedHTML('flickr/flickrMine.php');
+echo file_get_contents('flickr/flickrMine.html');
 
 echo '<h2><a href="https://flickr.com/photos/tags/jamiekitson">Photos Of Me Me Me</a></h2>';
 
 // echo flickrSearch(array('tags' => 'jamiekitson'));
-cachedHTML('flickr/flickrMe.php');
+echo file_get_contents('flickr/flickrMe.html');
 
 echo '<h2><a href="https://flickr.com/photos/jamiekitson/tags/myfavs/">my own favs</a></h2>';
 
 // echo flickrSearch(array('user_id' => '77788903@N00', 'tags' => 'myfavs'));
-cachedHTML('flickr/flickrOwnFavs.php');
+echo file_get_contents('flickr/flickrOwnFavs.html');
 
 echo '<h2><a href="https://flickr.com/photos/jamiekitson/favorites/">my favs</a></h2>';
 
 // echo flickrCall(array('user_id' => '77788903@N00', 'method' => 'flickr.favorites.getPublicList'));
-cachedHTML('flickr/flickrFavs.php');
+echo file_get_contents('flickr/flickrFavs.html');
 
 echo '<h2>recent activity</h2>';
 
