@@ -18,12 +18,12 @@ mkdir -p cache
 
 for value in flickrMine flickrFavs flickrOwnFavs flickrMe instagramOwn
 do
-    php flickr/$value.php > cache/$value.html
+    php updateCache.php flickr/$value.php cache/$value.html
 done
 
 for value in twitter blog youtube
 do
-    php $value.php > cache/$value.html
+    php updateCache.php $value.php cache/$value.html
 done
 
 php index.php > index.html

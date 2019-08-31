@@ -8,9 +8,9 @@ function cachedHTML($runFile)
 	$cacheFile = $basedir."cache/".$p['filename'].".html";
 	$runFile = $basedir.$runFile;
 
-//	$t = microtime(true);
+	$t = microtime(true);
 
-//	echo "\n<!-- getting cache -->\n";
+	echo "\n<!-- getting cache -->\n";
 	echo file_get_contents($cacheFile);
 
 /*
@@ -20,8 +20,8 @@ function cachedHTML($runFile)
 	        exec("/usr/bin/php ".$basedir."updateCache.php $runFile $cacheFile > /dev/null &");
 	        // exec("/usr/bin/php $runFile > $cacheFile &");
 	}
-	printf("<!-- %01.2f -->\n", microtime(true) - $t);
 */
+	printf("<!-- %01.2f -->\n", microtime(true) - $t);
 }
 
 function isCached($f)
