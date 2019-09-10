@@ -10,7 +10,7 @@ include($base.'.php');
 
 $s = ob_get_clean();
 
-if (substr_compare($base, 'index', -5) > 0)
+if (substr_compare($base, 'index', -5) != 0)
 {
     $s = "\n<!-- cache -->\n$s";
     $s = $s.sprintf("\n<!-- %01.2f -->\n", microtime(true) - $t);
