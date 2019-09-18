@@ -43,7 +43,7 @@ $url = 'https://api.flickr.com/services/feeds/activity/all?user_id=77788903@N00&
         $xml = simplexml_load_file($url);
         foreach($xml->channel->item as $i)
         {
-		echo '<div class="flickrcomment">'.$i->description.'</div>';
+		echo '<div class="flickrcomment">'.str_replace('href="/photos', 'href="https://www.flickr.com/photos', $i->description).'</div>';
 	}
 
 ?>
