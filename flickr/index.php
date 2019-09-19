@@ -36,7 +36,9 @@ echo file_get_contents('flickr/flickrFavs.html');
 
 echo '<h2>recent activity</h2>';
 
-$url = 'https://api.flickr.com/services/feeds/activity/all?user_id=77788903@N00&secret=1KwROhmNUwDBruPOF%2BPavr8RMEk%3D&lang=en-us&format=rss_200';
+include('feedsecret.php');
+
+$url = "https://api.flickr.com/services/feeds/activity/all?user_id=77788903@N00&secret=$feedsecret&lang=en-us&format=rss_200";
 
 // echo file_get_contents($url);
 
