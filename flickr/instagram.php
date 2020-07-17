@@ -15,13 +15,14 @@ function instagram($url)
 
 //	print_r($j);
 
-        foreach($j['data'] as $a)
-        {
-                $title = htmlentities($a['caption'].' by '.$a['username']);
-                echo '<a href="'.$a['permalink'].'">';
-                $src = $a['media_url'];
-                echo '<img width=75 height=75 src="'.$src.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
-        }
+    for($i = 0; $i < 20; $i++)
+    {
+        $a = $j['data'][$i];
+        $title = htmlentities($a['caption'].' by '.$a['username']);
+        echo '<a href="'.$a['permalink'].'">';
+        $src = $a['media_url'];
+        echo '<img width=75 height=75 src="'.$src.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
+    }
 }
 
 ?>
