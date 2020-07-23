@@ -24,13 +24,13 @@ function instagram($url)
         $file = __DIR__.DIRECTORY_SEPARATOR.$id.'.jpg';
         file_put_contents($file, $contents);
         $image = imagecreatefromjpeg($file);
-        $imgResized = imagescale($image, 150, 150);
+        $imgResized = imagescale($image, 75, 75);
         imagedestroy($image);
         imagejpeg($imgResized, $file);
         imagedestroy($imgResized);
         $title = htmlentities($a['caption'].' by '.$a['username']);
         echo '<a href="'.$a['permalink'].'">';
-        echo '<img width=75 height=75 src="'.$id.'.jpg" alt="'.$title.'" title="'.$title.'"></a>'."\n";
+        echo '<img width=75 height=75 src="flickr/'.$id.'.jpg" alt="'.$title.'" title="'.$title.'"></a>'."\n";
     }
 }
 
