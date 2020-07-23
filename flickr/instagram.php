@@ -18,10 +18,19 @@ function instagram($url)
     for($i = 0; $i < 20; $i++)
     {
         $a = $j['data'][$i];
+        $src = $a['media_url'];
+        $id = $a['id'];
+        $contents = file_get_contents($src);
+        $file = __DIR__.DIRECTORY_SEPARATOR.$id.'.jpg';
+        file_put_contents($file, $contents);
+        $image = imagecreatefromjpeg($file);
+        $imgResized = imagescale($image, 150, 150);
+        imagedestroy($image);
+        imagejpeg($imgResized, $file);
+        imagedestroy($imgResized);
         $title = htmlentities($a['caption'].' by '.$a['username']);
         echo '<a href="'.$a['permalink'].'">';
-        $src = $a['media_url'];
-        echo '<img width=75 height=75 src="'.$src.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
+        echo '<img width=75 height=75 src="'.$id.'.jpg" alt="'.$title.'" title="'.$title.'"></a>'."\n";
     }
 }
 
