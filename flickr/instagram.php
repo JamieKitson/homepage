@@ -2,7 +2,7 @@
 
 function instagram($url)
 {
-	$f = file(dirname(__FILE__).'/instagramToken.php');
+    $f = file(dirname(__FILE__).'/instagramToken.php');
 	$token = trim($f[1]);
 
 	$url.='?count=20&fields=caption,id,thumbnail_url,media_url,username,permalink&access_token='.$token;
@@ -32,6 +32,11 @@ function instagram($url)
         echo '<a href="'.$a['permalink'].'">';
         echo '<img width=75 height=75 src="/flickr/'.$id.'.jpg" alt="'.$title.'" title="'.$title.'"></a>'."\n";
     }
+
+    $refresh = @file_get_contents('https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token='.$token);
+    $j = json_decode($refresh, true);
+    $days = $j["expires_in"] / (60 * 60 * 24);
+    echo "<!-- $days -->";
 }
 
 ?>
