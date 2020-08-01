@@ -1,5 +1,7 @@
 <?php
 
+echo '<link rel="stylesheet" type="text/css" href="style.css" />';
+
     include "facebooktoken.php";
 
     $url = 'https://graph.facebook.com/10164155946480341/feed?fields=created_time,id,permalink_url,message,reactions,comments,caption,description,full_picture,icon,link,name,type&access_token='.$token;
