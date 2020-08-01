@@ -28,8 +28,8 @@ try
 }
 catch (Exception $e)
 {
-    if (file_exists($base.'.html')
-        $s = file_get_contents($base.'.html')
+    if (file_exists($base.'.html'))
+        $s = file_get_contents($base.'.html');
     else
         $s = ob_get_clean();
     $s = "\n<!-- ".date(DATE_ATOM)." ".$e->getMessage()." -->\n$s";
