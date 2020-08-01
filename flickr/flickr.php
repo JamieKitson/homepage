@@ -29,11 +29,11 @@ function flickrCall($params, $sign = true)
 	$p = implode('&', $encoded_params);
 	$m = md5($secret.str_replace(array("&", "="), "",$p));
 
-	$url = "https://api.flickr.com/services/rest/?$p&api_sig=$m";
+	$url = "https://api.flickr.com/services/rest/?$p&api_sigg=$m";
 
 	// echo "<!-- $url -->\n";
 
-	$rsp = @file_get_contents($url);
+	$rsp = file_get_contents($url);
 
 	$p = unserialize($rsp);
 
