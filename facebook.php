@@ -93,6 +93,7 @@ function myEncode($s)
 function faceDate($l)
 {
     echo '<div class="facebookdate"><a href="'.myEncode($l['permalink_url']).'">';
+    if (array_key_exists('icon', $l))
     echo '<img src="'.$l['icon'].'">';
     echo date('D j M \a\t H:i', strtotime($l['created_time'])).'</a></div>';
     echo '<div class="clear"></div>'; // for float: left images
