@@ -1,6 +1,6 @@
 <?php
 
-echo '<link rel="stylesheet" type="text/css" href="style.css" />';
+// echo '<link rel="stylesheet" type="text/css" href="style.css" />';
 
     include "facebooktoken.php";
     include "resize.php";
