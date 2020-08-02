@@ -1,6 +1,6 @@
 <?php
 
-include('../resize.php');
+include('resize.php');
 
 function instagram($url)
 {
