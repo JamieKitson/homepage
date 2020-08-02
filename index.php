@@ -135,7 +135,7 @@ echo file_get_contents('blog.html');
 <div id="facebookcontainer" class="container">
 <?php 
 
-echo file_get_contents('facebook/facebook.html');
+echo file_get_contents('facebook.html');
 
 ?>
 </div>
