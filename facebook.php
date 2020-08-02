@@ -3,6 +3,7 @@
 echo '<link rel="stylesheet" type="text/css" href="style.css" />';
 
     include "facebooktoken.php";
+    include "resize.php";
 
     $url = 'https://graph.facebook.com/10164155946480341/feed?fields=created_time,id,permalink_url,message,reactions,comments,caption,description,full_picture,icon,link,name,type&access_token='.$token;
 
@@ -65,8 +66,11 @@ function procLink($l)
     }
     if (array_key_exists('full_picture', $l)) // && is_array($l['attachment']['media']))
     {
+        $file = $l['id'].".jpg";
+        // echo $l['full_picture'];
+        resize($l['full_picture'], $file);
         echo '<a class="facebooklink" href="'.myEncode($href).'">';
-        echo '<img class="facebooklink" src="'.myEncode($l['full_picture']).'" alt="'.$title.'">';
+        echo '<img class="facebooklink" src="'.myEncode($file).'" alt="'.$title.'">';
         echo '</a>';
     }
     echo '<div class="facebooklinkcomment">'.myEncode($l['message']).'</div>';
@@ -89,6 +93,7 @@ function myEncode($s)
 function faceDate($l)
 {
     echo '<div class="facebookdate"><a href="'.myEncode($l['permalink_url']).'">';
+    echo '<img src="'.$l['icon'].'">';
     echo date('D j M \a\t H:i', strtotime($l['created_time'])).'</a></div>';
     echo '<div class="clear"></div>'; // for float: left images
     /*
