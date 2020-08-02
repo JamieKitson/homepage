@@ -130,16 +130,16 @@ echo file_get_contents('blog.html');
 </div></div>
 </section>
 
-<!--section class="content" id="facebook">
+<section class="content" id="facebook">
 <h2><a href="https://www.facebook.com/mardybumhead">Facebook</a></h2>
 <div id="facebookcontainer" class="container">
 <?php 
 
-// echo file_get_contents('facebook/facebook.html');
+echo file_get_contents('facebook/facebook.html');
 
 ?>
 </div>
-</section-->
+</section>
 
 <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="pics.js"></script>
