@@ -6,8 +6,6 @@ function exception_error_handler($severity, $message, $file, $line)
 }
 set_error_handler("exception_error_handler");
 
-try
-{
 
     $t = microtime(true);
 
@@ -24,7 +22,7 @@ try
         $s = "\n<!-- cache ".date("c")." -->\n$s";
         $s = $s.sprintf("\n<!-- %01.2f -->\n", microtime(true) - $t);
     }
-
+/*
 }
 catch (Exception $e)
 {
@@ -34,7 +32,7 @@ catch (Exception $e)
         $s = ob_get_clean();
     $s = "\n<!-- ".date(DATE_ATOM)." ".$e->getMessage()." -->\n$s";
 }
-
+*/
 file_put_contents($base.'.html', $s);
 
 ?>
