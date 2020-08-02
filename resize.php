@@ -12,7 +12,12 @@ function resize($src, $file)
         {
         $image = imagecreatefrompng($file);
         }
-        $imgResized = imagescale($image, -1, 150);
+        /*
+        $height = imagesy($image);
+        $width = imagesx($image);
+        $width = 
+        */
+        $imgResized = imagescale($image, 150);
         imagedestroy($image);
         imagejpeg($imgResized, $file);
         imagedestroy($imgResized);
