@@ -2,7 +2,7 @@
 
 function atom($url)
 {
-	$xml = simplexml_load_string(@file_get_contents($url));
+	$xml = simplexml_load_string(file_get_contents($url));
 
 	if (empty($xml->entry))
 		return;
