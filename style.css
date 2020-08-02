@@ -153,6 +153,12 @@ div#facebookcontainer {
 img.facebooklink {
 	float: left;
 	margin: 0.5em;
+    height: 75px;
+}
+
+.facebookdate img {
+    margin-right: 0.5em;
+    vertical-align: middle;
 }
 
 div.facebookstatus {
