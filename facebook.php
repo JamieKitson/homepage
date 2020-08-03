@@ -1,13 +1,9 @@
 <?php
 
-// echo '<link rel="stylesheet" type="text/css" href="style.css" />';
-
     include "facebooktoken.php";
     include "resize.php";
 
     $url = 'https://graph.facebook.com/10164155946480341/feed?fields=created_time,id,permalink_url,message,reactions,comments,caption,description,full_picture,icon,link,name,type&access_token='.$token;
-
-//    echo $url;
 
     $rsp = file_get_contents($url);
 
@@ -20,16 +16,7 @@
     for($i = 0; $i < 10; $i++)
     {
         $a = $j['data'][$i];
-        /*
-        echo '<div class="facebooklink">';
-        echo '<div class="facebooklinkcomment">'.$a['message'].'</div>';
-        echo '<div class="facebookdate"><a href="'.$a['permalink_url'].'">';
-//        echo date('D j M \a\t H:i', $a['created_time']).'</a></div>';
-        echo '<div class="clear"></div>'; // for float: left images
-        echo "</div>\n";
-*/
 		procLink($a);
-
     }
 
 function procLink($l)
@@ -47,26 +34,13 @@ function procLink($l)
     if (array_key_exists('link', $l))
     {
         $href = $l['link'];
-        /*
-        $q = parse_url($href, PHP_URL_QUERY);
-        foreach(explode('&', $q) as $u)
-        {
-            $v = explode('=', $u);
-            if ($v[0] == 'u')
-            {
-                $href = urldecode(urldecode($v[1]));
-                break;
-            }
-        }
-        */
     }
     else
     {
         $href = $l['permalink_url'];
     }
-    if (array_key_exists('full_picture', $l)) // && is_array($l['attachment']['media']))
+    if (array_key_exists('full_picture', $l))
     {
-        // echo $l['full_picture'];
         $file = resize($l['full_picture'], $l['id']);
         echo '<a class="facebooklink" href="'.myEncode($href).'">';
         echo '<img class="facebooklink" src="'.myEncode($file).'" alt="'.$title.'">';
@@ -96,19 +70,12 @@ function faceDate($l)
     echo '<img src="'.$l['icon'].'">';
     echo date('D j M \a\t H:i', strtotime($l['created_time'])).'</a></div>';
     echo '<div class="clear"></div>'; // for float: left images
-    /*
-    if ($l['comments']['count'] > 0)
-    {
-        echo '<div class="facebookcomments"><a href="'.myEncode($l['permalink']).'"><span class="view">View ';
-        echo $l['comments']['count'].' comments</span></a></div>';
-    }
-    */
 }
 
 function ignorePost($p)
 {
     $ignore = Array('Flickr', 'Twitter', 'Yahoo!');
-    if (array_key_exists('name', $p) && in_array($p['name'], $ignore)) // && $p['comments']['count'] == 0)
+    if (array_key_exists('name', $p) && in_array($p['name'], $ignore))
         return true;
     return false;
 }
