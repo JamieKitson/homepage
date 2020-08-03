@@ -23,8 +23,8 @@ function instagram($url)
         $src = $a['media_url'];
         $id = $a['id'];
 //        $contents = file_get_contents($src);
-        $file = __DIR__.DIRECTORY_SEPARATOR.$id.'.jpg';
-        resize($src, $file);
+        $file = __DIR__.DIRECTORY_SEPARATOR.$id;
+        $file = resize($src, $file);
         /*
         file_put_contents($file, $contents);
         $image = imagecreatefromjpeg($file);

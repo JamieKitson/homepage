@@ -66,9 +66,8 @@ function procLink($l)
     }
     if (array_key_exists('full_picture', $l)) // && is_array($l['attachment']['media']))
     {
-        $file = $l['id'].".jpg";
         // echo $l['full_picture'];
-        resize($l['full_picture'], $file);
+        $file = resize($l['full_picture'], $l['id']);
         echo '<a class="facebooklink" href="'.myEncode($href).'">';
         echo '<img class="facebooklink" src="'.myEncode($file).'" alt="'.$title.'">';
         echo '</a>';
