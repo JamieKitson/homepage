@@ -27,7 +27,7 @@ foreach($vals->items as $item)
 
     $snippet = $item->snippet;
     $published = $snippet->publishedAt;
-    $title = $snippet->title;
+    $title = htmlentities($snippet->title);
     $link = "https://www.youtube.com/watch?v=".$item->id;
     $thumb = '<img src="'.$snippet->thumbnails->medium->url.'" class="ytthumb rel" alt="'.$title.'">';
     $desc = $snippet->description;
