@@ -23,10 +23,10 @@ function instagram($url)
         $src = $a['media_url'];
         $id = $a['id'];
         $file = __DIR__.DIRECTORY_SEPARATOR.$id;
-        $file = resize($src, $file);
+        $file = basename(resize($src, $file));
         $title = htmlentities($a['caption'].' by '.$a['username']);
         echo '<a href="'.$a['permalink'].'">';
-        echo '<img width=75 height=75 src="/flickr/'.$id.'.jpg" alt="'.$title.'" title="'.$title.'"></a>'."\n";
+        echo '<img width=75 height=75 src="/flickr/'.$file.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
     }
 
     $refresh = file_get_contents('https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token='.$token);

@@ -1,6 +1,6 @@
 <?php
 
-    include "facebooktoken.php";
+    include dirname(__FILE__)."/facebooktoken.php";
     include "resize.php";
 
     $url = 'https://graph.facebook.com/10164155946480341/feed?fields=created_time,id,permalink_url,message,reactions,comments,caption,description,full_picture,icon,link,name,type&access_token='.$token;
@@ -41,9 +41,10 @@ function procLink($l)
     }
     if (array_key_exists('full_picture', $l))
     {
-        $file = resize($l['full_picture'], $l['id']);
+        $file = __dir__.DIRECTORY_SEPARATOR.$l['id'];
+        $file = resize($l['full_picture'], $file);
         echo '<a class="facebooklink" href="'.myEncode($href).'">';
-        echo '<img class="facebooklink" src="'.myEncode($file).'" alt="'.$title.'">';
+        echo '<img class="facebooklink" src="'.basename($file).'" alt="'.$title.'">';
         echo '</a>';
     }
     if (array_key_exists('message', $l))
