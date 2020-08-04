@@ -44,7 +44,7 @@ function procLink($l)
         $file = __dir__.DIRECTORY_SEPARATOR.$l['id'];
         $file = resize($l['full_picture'], $file);
         echo '<a class="facebooklink" href="'.myEncode($href).'">';
-        echo '<img class="facebooklink" src="'.basename($file).'" alt="'.$title.'">';
+        echo '<img class="facebooklink" src="/facebook/'.basename($file).'" alt="'.$title.'">';
         echo '</a>';
     }
     if (array_key_exists('message', $l))
