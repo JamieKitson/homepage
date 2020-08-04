@@ -13,10 +13,10 @@
 
 //  print_r($j);
 
-    for($i = 0; $i < 10; $i++)
+    for($i = 0; $i < count($j['data']); $i++)
     {
         $a = $j['data'][$i];
-		procLink($a);
+		$i += procLink($a);
     }
 
 function procLink($l)
@@ -46,13 +46,14 @@ function procLink($l)
         echo '<img class="facebooklink" src="'.myEncode($file).'" alt="'.$title.'">';
         echo '</a>';
     }
-    echo '<div class="facebooklinkcomment">'.myEncode($l['message']).'</div>';
+    if (array_key_exists('message', $l))
+        echo '<div class="facebooklinkcomment">'.myEncode($l['message']).'</div>';
     if ($title != "")
         echo '<div><a class="facebooklink" href="'.myEncode($href).'">'.$title.'</a></div>';
+    if (array_key_exists('description', $l))
+        echo '<div class="facebooklinkdesc">'.myEncode($l['description']).'</div>';
     if (array_key_exists('caption', $l))
         echo '<div class="facebooklinksite">'.myEncode($l['caption']).'</div>';
-    if (array_key_exists('description', $l))
-    echo '<div class="facebooklinkdesc">'.myEncode($l['description']).'</div>';
     faceDate($l);
     echo "</div>\n";
     return 1;
@@ -74,8 +75,8 @@ function faceDate($l)
 
 function ignorePost($p)
 {
-    $ignore = Array('Flickr', 'Twitter', 'Yahoo!');
-    if (array_key_exists('name', $p) && in_array($p['name'], $ignore))
+    $ignore = Array('Flickr', 'Twitter', 'Yahoo!', 'Instagram Photos');
+    if (array_key_exists('name', $p) && in_array($p['name'], $ignore) && (strlen($p['message']) < 50))
         return true;
     return false;
 }
