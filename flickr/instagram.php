@@ -20,7 +20,14 @@ function instagram($url)
     for($i = 0; $i < 20; $i++)
     {
         $a = $j['data'][$i];
-        $src = $a['media_url'];
+        if (array_key_exists('thumbnail_url', $a))
+        {
+            $src = $a['thumbnail_url'];
+        }
+        else
+        {
+            $src = $a['media_url'];
+        }
         $id = $a['id'];
         $file = __DIR__.DIRECTORY_SEPARATOR.$id;
         $file = basename(resize($src, $file));
