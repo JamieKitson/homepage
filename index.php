@@ -47,13 +47,13 @@ echo file_get_contents('flickr/instagramOwn.html');
 
 ?>
 
-<div id="flickrmore4" class="flickrmore"><div id="flickrmore4inner" class="flickrmoreinner">
+<!-- div id="flickrmore4" class="flickrmore"><div id="flickrmore4inner" class="flickrmoreinner">
 <h3>My Favs</h3>
 <div id="flickrmore4params">instagramFavs</div></div></div>
 
 <div id="instagramlink">
 <a href="#" class="flickrmorelink" id="instagrammorelink">[+]My favourites...</a>
-</div>
+</div -->
 
 </div>
 </section>
