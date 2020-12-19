@@ -38,6 +38,26 @@ Mongol Rally: <a href="https://geekout.org.uk">Team Geekout</a>
 <a href="https://github.com/JamieKitson">GitHub</a>
 </header>
 
+<section class="content" id="instagram">
+<h2><a href="https://instagram.com/jamiekitson/">Instagram</a></h2>
+<div id="instagramcontainer" class="container">
+<?php
+
+echo file_get_contents('flickr/instagramOwn.html');
+
+?>
+
+<div id="flickrmore4" class="flickrmore"><div id="flickrmore4inner" class="flickrmoreinner">
+<h3>My Favs</h3>
+<div id="flickrmore4params">instagramFavs</div></div></div>
+
+<div id="instagramlink">
+<a href="#" class="flickrmorelink" id="instagrammorelink">[+]My favourites...</a>
+</div>
+
+</div>
+</section>
+
 <section class="content" id="flickr">
 <h2><a href="https://www.flickr.com/photos/jamiekitson">Flickr</a></h2>
 <div id="flickrcontainer" class="container">
@@ -63,26 +83,6 @@ echo file_get_contents('flickr/flickrMine.html');
 <div id="flickrlink">
 <a href="flickr" class="flickrmorelink" id="flickrmorelink">[+]More from flickr...</a>
 </div>
-</div>
-</section>
-
-<section class="content" id="instagram">
-<h2><a href="https://instagram.com/jamiekitson/">Instagram</a></h2>
-<div id="instagramcontainer" class="container">
-<?php
-
-echo file_get_contents('flickr/instagramOwn.html');
-
-?>
-
-<div id="flickrmore4" class="flickrmore"><div id="flickrmore4inner" class="flickrmoreinner">
-<h3>My Favs</h3>
-<div id="flickrmore4params">instagramFavs</div></div></div>
-
-<div id="instagramlink">
-<a href="#" class="flickrmorelink" id="instagrammorelink">[+]My favourites...</a>
-</div>
-
 </div>
 </section>
 
