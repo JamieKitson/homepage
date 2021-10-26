@@ -30,7 +30,7 @@ function instagram($url)
         }
         $id = $a['id'];
         $file = __DIR__.DIRECTORY_SEPARATOR.$id;
-        $file = basename(resize($src, $file));
+        $file = basename(resize($src, $file, 150, 150));
         $title = htmlentities($a['caption'].' by '.$a['username']);
         echo '<a href="'.$a['permalink'].'">';
         echo '<img width=75 height=75 src="/flickr/'.$file.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
