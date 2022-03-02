@@ -34,8 +34,8 @@ echo '<h2><a href="https://flickr.com/photos/jamiekitson/favorites/">my favs</a>
 // echo flickrCall(array('user_id' => '77788903@N00', 'method' => 'flickr.favorites.getPublicList'));
 echo file_get_contents('flickr/flickrFavs.html');
 
-echo '<h2>recent activity</h2>';
-
+try
+{
 include('feedsecret.php');
 
 $url = "https://api.flickr.com/services/feeds/activity/all?user_id=77788903@N00&secret=$feedsecret&lang=en-us&format=rss_200";
@@ -43,10 +43,18 @@ $url = "https://api.flickr.com/services/feeds/activity/all?user_id=77788903@N00&
 // echo file_get_contents($url);
 
         $xml = simplexml_load_file($url);
+
+echo '<h2>recent activity</h2>';
+
         foreach($xml->channel->item as $i)
         {
 		echo '<div class="flickrcomment">'.str_replace('href="/photos', 'href="https://www.flickr.com/photos', $i->description).'</div>';
 	}
+}
+catch (Exception $e)
+{
+    echo "<!-- error getting flickr activity -->";
+}
 
 ?>
 </div>
