@@ -36,10 +36,18 @@ function instagram($url)
         echo '<img width=75 height=75 src="/flickr/'.$file.'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
     }
 
-    $refresh = file_get_contents('https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token='.$token);
-    $j = json_decode($refresh, true);
-    $days = $j["expires_in"] / (60 * 60 * 24);
-    echo "<!-- $days -->";
+    try
+    {
+    $refresh = @file_get_contents('https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token='.$token);
+        $j = json_decode($refresh, true);
+        $days = $j["expires_in"] / (60 * 60 * 24);
+        echo "<!-- $days -->";
+    }
+    catch (Exception $e)
+    {
+        echo "<!-- error refreshing instagram token -->";
+    }
+
 }
 
 ?>
