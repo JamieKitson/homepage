@@ -17,7 +17,7 @@
 
         foreach($tweets as $tweet)
         {
-            if (!property_exists($tweet, "created_at"))
+            if (is_array($tweet))
                 throw new Exception($response);
 
 		$date = strtotime($tweet->created_at);
