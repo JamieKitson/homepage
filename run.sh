@@ -15,13 +15,14 @@ secret_file "flickr/instagramToken.php" "$INSTAGRAM_TOKEN"
 secret_file "twittertoken.php" "\$twittertoken = \"$TWITTER_TOKEN\";"
 secret_file "flickr/feedsecret.php" "\$feedsecret = \"$FLICKR_FEED_SECRET\";"
 secret_file "facebook/facebooktoken.php" "\$token = \"$FACEBOOK_TOKEN\";"
+wget "$TWITTER_URL" -O twitter.html
 
 for value in flickrMine flickrFavs flickrOwnFavs flickrMe instagramOwn index
 do
     php updateCache.php flickr/$value
 done
 
-for value in twitter blog youtube facebook/facebook index
+for value in blog youtube facebook/facebook index #twitter
 do
     php updateCache.php $value
 done
