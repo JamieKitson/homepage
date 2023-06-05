@@ -11,10 +11,15 @@
 
 	$response = curl_exec( $ch );
 
+//print($response);
+
 	$tweets = json_decode($response);
 
         foreach($tweets as $tweet)
         {
+            if (!property_exists($tweet, "created_at"))
+                throw new Exception($response);
+
 		$date = strtotime($tweet->created_at);
 		$status = "";
 		if (property_exists($tweet, "retweeted_status"))
