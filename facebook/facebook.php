@@ -5,6 +5,8 @@
 
     $url = 'https://graph.facebook.com/10164155946480341/feed?fields=created_time,id,permalink_url,message,reactions,comments,caption,description,full_picture,icon,link,name,type&access_token='.$token;
 
+//print_r($url);
+
     $rsp = file_get_contents($url);
 
 //  print_r($rsp);

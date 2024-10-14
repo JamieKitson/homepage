@@ -27,13 +27,13 @@ function resize($src, $file, $newheight = 150, $newwidth = -1)
     $y = 0;
 
     if ($newwidth <= 0)
-        $newwidth = $newheight * $width / $height;
+        $newwidth = round($newheight * $width / $height);
     else
     {
         $ratio = min($height / $newheight, $width / $newwidth);
 
-        $x = ($width - ($newwidth * $ratio)) / 2;
-        $y = ($height - ($newheight * $ratio)) / 2; 
+        $x = round(($width - ($newwidth * $ratio)) / 2);
+        $y = round(($height - ($newheight * $ratio)) / 2); 
     }
 
     $imgResized = imagecreatetruecolor($newwidth, $newheight); // imagescale($image, $newwidth);

@@ -11,15 +11,15 @@ function linkify_twitter_status($status_text)
 
   // linkify twitter users
   $status_text = preg_replace(
-    '/(^|\s)@(\w+)/',
-    '\1<a class="twitterpost" href="https://twitter.com/\2">@\2</a>',
+    '/(^|\s)@([\w\.]+)/',
+    '\1<a class="twitterpost" href="https://bsky.app/profile/\2">@\2</a>',
     $status_text
   );
 
   // linkify tags
   $status_text = preg_replace(
     '/(^|\s)#(\w+)/',
-    '\1<a class="twitterpost" href="https://twitter.com/search?q=%23\2">#\2</a>',
+    '\1<a class="twitterpost" href="https://bsky.app/search?q=%23\2">#\2</a>',
     $status_text
   );
 

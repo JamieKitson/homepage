@@ -20,7 +20,7 @@
 <title>Jamie Kitson</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="Description" content="The Jamie Kitson Portal: The latest photos from Flickr and Instagram, posts from Twitter, Facebook and his blog and videos from YouTube.">
+<meta name="Description" content="The Jamie Kitson Portal: The latest photos from Flickr and Instagram, posts from Bluesky, Facebook and his blog and videos from YouTube.">
 <meta name="keywords" content="jamie,kitson,jamie kitson,jamiekitson">
 </head>
 <body>
@@ -98,11 +98,11 @@ echo file_get_contents('flickr/flickrMine.html');
 </div -->
 
 <section class="content" id="twitter">
-<h2><a href="https://twitter.com/jamiekitson">Twitter</a></h2>
+<h2><a href="https://bsky.app/profile/jamiek.it">Bluesky</a></h2>
 <div id="twittercontainer" class="container">
 <?php
 
-echo file_get_contents('twitter.html');
+echo file_get_contents('bluesky.html');
 
 ?>
 </div>

@@ -4,6 +4,7 @@
 	include 'twittertoken.php';
 
 	$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=jamiekitson&count=10&include_rts=1&include_entities=1&tweet_mode=extended';
+//    $url = 'https://api.twitter.com/2/users/jamiekitson/timelines/reverse_chronological?tweet.fields=created_at&expansions=author_id&user.fields=created_at&max_results=5';
 
 	$ch = curl_init( $url );
 	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
@@ -12,6 +13,8 @@
 	$response = curl_exec( $ch );
 
 //print($response);
+
+//return;
 
 	$tweets = json_decode($response);
 
