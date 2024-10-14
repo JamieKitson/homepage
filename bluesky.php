@@ -68,9 +68,9 @@ $response = file_get_contents("https://bsky.social/xrpc/app.bsky.feed.getAuthorF
         echo linkify_twitter_status($status);
         echo '<div class="twitterdate">';
         echo statusLink($tweet->post->uri, $tweet->post->author->handle, date('D M d H:i', $date));
-        if (property_Exists($tweet->post, "reply"))
+        if (property_Exists($tweet, "reply"))
         {
-                echo statusLink($tweet->in_reply_to_status_id_str, $tweet->in_reply_to_screen_name, 'In reply to '.$tweet->in_reply_to_screen_name);
+                echo statusLink($tweet->reply->parent->uri, $tweet->reply->parent->author->handle, 'In reply to '.$tweet->reply->parent->author->displayName);
         }
         echo "</div></div>\n";
     }
