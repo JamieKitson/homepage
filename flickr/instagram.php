@@ -4,6 +4,40 @@ include('resize.php');
 
 function instagram($url)
 {
+    $command = escapeshellcmd(__DIR__.'/instaloader.py --no-videos --no-profile-pic --dirname-pattern '.__DIR__.'/instagram -c 20 jamiekitson');
+    $output = shell_exec($command);
+
+    echo $output;
+
+    foreach (glob(__DIR__."/instagram/20*.json.xz") as $filename) {
+        echo "$filename size " . filesize($filename) . "\n";
+
+        $command = "xz -dc " . escapeshellarg($filename);
+        $fileHandle = popen($command, 'r');
+
+        //$fileHandle = fopen($filename, 'r');
+        //stream_filter_append($fileHandle, 'compress.zlib.decompress');
+
+        $jsonContent = stream_get_contents($fileHandle);
+
+        pclose($fileHandle);
+
+        //echo $jsonContent;
+        $data = json_decode($jsonContent, true);
+        //print $data;
+        $shortcode = $data['node']['shortcode'];
+        $title = $data['node']['caption'];
+        $jpgFile = str_replace('.json.xz', '.jpg', $filename);
+        if (!file_exists($jpgFile) && !file_exists($jpgFile = str_replace('.jpg', '_1.jpg', $jpgFile)))
+        {
+            throw new Exception('Unable to find file '.$jpgFile);
+        }
+
+        echo '<a href="https://www.instagram.com/p/'.$shortcode.'/">';
+        echo '<img width=75 height=75 src="/flickr/instagram/'.basename($jpgFile).'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
+
+    }
+/*
     $f = file(dirname(__FILE__).'/instagramToken.php');
 	$token = trim($f[1]);
 
@@ -47,7 +81,7 @@ function instagram($url)
     {
         echo "<!-- error refreshing instagram token -->";
     }
-
+*/
 }
 
 ?>
