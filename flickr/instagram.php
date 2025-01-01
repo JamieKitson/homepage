@@ -6,7 +6,7 @@ function instagram($url)
 {
 
     $sessionFile = '/opt/buildhome/.config/instaloader/session-rudolphjoshua2025'; 
-    if (file_exists($sessionFile)
+    if (file_exists($sessionFile))
     {
         unlink($sessionFile);
     }
