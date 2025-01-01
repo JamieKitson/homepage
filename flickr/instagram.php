@@ -12,7 +12,7 @@ function instagram($url)
 
     $command = escapeshellcmd(__DIR__."/instaloader.py --no-videos --no-profile-pic --login $username --password \"$password\" --dirname-pattern ".__DIR__.'/instagram -c 20 jamiekitson');
 
-    echo $command;
+//    echo $command;
 
     $output = shell_exec($command);
 
