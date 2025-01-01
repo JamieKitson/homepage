@@ -5,6 +5,12 @@ include('resize.php');
 function instagram($url)
 {
 
+    $sessionFile = '/opt/buildhome/.config/instaloader/session-rudolphjoshua2025'; 
+    if (file_exists($sessionFile)
+    {
+        unlink($sessionFile);
+    }
+
     $f = file(dirname(__FILE__).'/instaloaderUsername.php');
 	$username = trim($f[1]);
     $f = file(dirname(__FILE__).'/instaloaderPassword.php');
