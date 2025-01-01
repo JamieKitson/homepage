@@ -4,7 +4,16 @@ include('resize.php');
 
 function instagram($url)
 {
-    $command = escapeshellcmd(__DIR__.'/instaloader.py --no-videos --no-profile-pic --dirname-pattern '.__DIR__.'/instagram -c 20 jamiekitson');
+
+    $f = file(dirname(__FILE__).'/instaloaderUsername.php');
+	$username = trim($f[1]);
+    $f = file(dirname(__FILE__).'/instagramPassword.php');
+	$password = trim($f[1]);
+
+    $command = escapeshellcmd(__DIR__."/instaloader.py --no-videos --no-profile-pic --login $username --password \"$password\" --dirname-pattern ".__DIR__.'/instagram -c 20 jamiekitson');
+
+    echo $command;
+
     $output = shell_exec($command);
 
     echo $output;
