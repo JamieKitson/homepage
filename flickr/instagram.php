@@ -5,11 +5,16 @@ include('resize.php');
 function instagram($url)
 {
 
-    $sessionFile = '/opt/buildhome/.config/instaloader/session-rudolphjoshua2025'; 
+    $sessionFile = $_SERVER['HOME'].'/.config/instaloader/session-rudolphjoshua2025';
+    
     if (file_exists($sessionFile))
     {
+        error_log("deleting session file $sessionFile");
         unlink($sessionFile);
     }
+    else
+        error_log("session file $sessionFile does not exist");
+
 
     $f = file(dirname(__FILE__).'/instaloaderUsername.php');
 	$username = trim($f[1]);
@@ -18,11 +23,11 @@ function instagram($url)
 
     $command = escapeshellcmd(__DIR__."/instaloader.py --no-videos --no-profile-pic --login $username --password \"$password\" --dirname-pattern ".__DIR__.'/instagram -c 20 jamiekitson');
 
-//    echo $command;
+    error_log($command);
 
     $output = shell_exec($command);
 
-    echo $output;
+    error_log($output);
 
     foreach (glob(__DIR__."/instagram/20*.json.xz") as $filename) {
         echo "$filename size " . filesize($filename) . "\n";
