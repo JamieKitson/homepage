@@ -4,7 +4,7 @@ include('resize.php');
 
 function instagram($url)
 {
-
+/*
     $sessionFile = $_SERVER['HOME'].'/.config/instaloader/session-rudolphjoshua2025';
     
     if (file_exists($sessionFile))
@@ -14,14 +14,14 @@ function instagram($url)
     }
     else
         error_log("session file $sessionFile does not exist");
-
+*/
 
     $f = file(dirname(__FILE__).'/instaloaderUsername.php');
 	$username = trim($f[1]);
     $f = file(dirname(__FILE__).'/instaloaderPassword.php');
 	$password = trim($f[1]);
 
-    $command = escapeshellcmd(__DIR__."/instaloader.py --no-videos --no-profile-pic --login $username --password \"$password\" --dirname-pattern ".__DIR__.'/instagram -c 20 jamiekitson');
+    $command = escapeshellcmd(__DIR__."/instaloader.py --no-videos --no-profile-pic -l $username -p \"$password\" --dirname-pattern ".__DIR__.'/instagram -c 20 --no-compress-json jamiekitson');
 
     error_log($command);
 
@@ -29,9 +29,10 @@ function instagram($url)
 
     error_log($output);
 
-    foreach (glob(__DIR__."/instagram/20*.json.xz") as $filename) {
-        echo "$filename size " . filesize($filename) . "\n";
+    foreach (glob(__DIR__."/instagram/20*.json") as $filename) {
+        // echo "$filename size " . filesize($filename) . "\n";
 
+/*
         $command = "xz -dc " . escapeshellarg($filename);
         $fileHandle = popen($command, 'r');
 
@@ -41,13 +42,15 @@ function instagram($url)
         $jsonContent = stream_get_contents($fileHandle);
 
         pclose($fileHandle);
+*/
+        $jsonContent = file_get_contents($filename);
 
         //echo $jsonContent;
         $data = json_decode($jsonContent, true);
         //print $data;
         $shortcode = $data['node']['shortcode'];
         $title = $data['node']['caption'];
-        $jpgFile = str_replace('.json.xz', '.jpg', $filename);
+        $jpgFile = str_replace('.json', '.jpg', $filename);
         if (!file_exists($jpgFile) && !file_exists($jpgFile = str_replace('.jpg', '_1.jpg', $jpgFile)))
         {
             throw new Exception('Unable to find file '.$jpgFile);
