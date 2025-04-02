@@ -30,8 +30,7 @@ function instagram($url)
             throw new Exception('Unable to find file '.$jpgFile);
         }
 
-        $image = file_get_contents($urlbase.$jpgFile);
-        file_put_contents(__DIR__."/instagram/".$jpgFile, $image);
+        resize($urlbase.$jpgFile, __DIR__."/instagram/".str_replace('.jpg', '', $jpgFile), 150, 150);
 
         echo '<a href="https://www.instagram.com/p/'.$shortcode.'/">';
         echo '<img width=75 height=75 src="/flickr/instagram/'.basename($jpgFile).'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
