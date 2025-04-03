@@ -1,0 +1,4 @@
+/facebook/*
+/flickr/instagram/*
+  cache-control: public
+  cache-control: max-age=31536000
