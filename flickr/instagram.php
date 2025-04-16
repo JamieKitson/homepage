@@ -27,7 +27,7 @@ function instagram($url)
         $jpgFile = str_replace('.json', '.jpg', $filename);
         if (!UR_exists($urlbase.$jpgFile) && !UR_exists($urlbase.($jpgFile = str_replace('.jpg', '_1.jpg', $jpgFile))))
         {
-            throw new Exception('Unable to find file '.$jpgFile);
+            throw new Exception("Unable to find file $urlbase$jpgFile");
         }
 
         resize($urlbase.$jpgFile, __DIR__."/instagram/".str_replace('.jpg', '', $jpgFile), 150, 150);
