@@ -16,24 +16,33 @@ function instagram($url)
 
     $files = preg_split("/\R/", $filelist, -1, PREG_SPLIT_NO_EMPTY);
 
-    foreach (array_slice($files, 0, 20) as $filename) {
-        $jsonContent = file_get_contents($urlbase.$filename);
+    foreach (array_slice($files, 0, 20) as $jsonfile) {
+        $jsonContent = file_get_contents($urlbase.$jsonfile);
 
         //echo $jsonContent;
         $data = json_decode($jsonContent, true);
         //print $data;
         $shortcode = $data['node']['shortcode'];
         $title = $data['node']['caption'];
-        $jpgFile = str_replace('.json', '.jpg', $filename);
+
+        $extensions = ['.jpg', '_1.jpg', '.webp', '_1.webp'];
+
+        foreach ($extensions as $ext) {
+            $jpgFile = str_replace('.json', $ext, $jsonfile);
+            if (UR_exists($urlbase.$jpgFile)) {
+                break;
+            }
+        }
+
         if (!UR_exists($urlbase.$jpgFile) && !UR_exists($urlbase.($jpgFile = str_replace('.jpg', '_1.jpg', $jpgFile))))
         {
             throw new Exception("Unable to find file $urlbase$jpgFile");
         }
 
-        resize($urlbase.$jpgFile, __DIR__."/instagram/".str_replace('.jpg', '', $jpgFile), 150, 150);
+        $output = resize($urlbase.$jpgFile, __DIR__."/instagram/".str_replace($ext, '', $jpgFile), 150, 150);
 
         echo '<a href="https://www.instagram.com/p/'.$shortcode.'/">';
-        echo '<img width=75 height=75 src="/flickr/instagram/'.basename($jpgFile).'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
+        echo '<img width=75 height=75 src="/flickr/instagram/'.basename($output).'" alt="'.$title.'" title="'.$title.'"></a>'."\n";
 
     }
 

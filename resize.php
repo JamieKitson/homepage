@@ -19,6 +19,9 @@ function resize($src, $file, $newheight = 150, $newwidth = -1)
             imagecopy($image, $temp, 0, 0, 0, 0, imagesx($temp), imagesy($temp));
             imagedestroy($temp);
             break;
+        case IMAGETYPE_WEBP:
+            $image = imagecreatefromwebp($file);
+            break;
         default: 
             throw new Exception("Unknown image type: ".$imgType);
     }
