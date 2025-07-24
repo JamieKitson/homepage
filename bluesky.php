@@ -52,14 +52,38 @@ $response = file_get_contents("https://bsky.social/xrpc/app.bsky.feed.getAuthorF
                 throw new Exception($response);
 
         $date = strtotime($tweet->post->record->createdAt);
-        $status = "";
+        $status = $tweet->post->record->text;
+        
+        // Replace abreviated urls with full urls
+        if (property_exists($tweet->post->record, 'facets')) {
+
+            $facets = $tweet->post->record->facets;
+
+            usort($facets, function ($a, $b) {
+                return $b['index']['byteStart'] - $a['index']['byteStart'];
+            });
+
+            foreach ($facets as $facet) {
+                $start = $facet->index->byteStart;
+                $end = $facet->index->byteEnd;
+                $length = $end - $start;
+
+                // Get URI from first feature
+                $uri = $facet->features[0]->uri ?? '';
+
+                // Replace using byte-aware substr_replace
+                $status = substr_replace($status, $uri, $start, $length);
+
+            }
+
+        }
+
         if ($tweet->post->author->handle != "jamiek.it")
         {
 //            $tweet = $tweet->retweeted_status;
-            $status = "RT @".$tweet->post->author->handle.": ";
+            $status = "RT @".$tweet->post->author->handle.": ".$status;
         }
                 echo '<div class="twitterpost">';
-        $status .= $tweet->post->record->text;
         /*
         expandURLs($tweet->entities->urls, $status);
         if (property_exists($tweet->entities, "media"))
