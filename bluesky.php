@@ -41,7 +41,7 @@ $response = file_get_contents("https://bsky.social/xrpc/app.bsky.feed.getAuthorF
 
 //$response = json_decode( $result);
 
-// file_put_contents( "bluesky.out", $response );
+ file_put_contents( "bluesky.out", $response );
 
 
     $tweets = json_decode($response);
@@ -92,7 +92,7 @@ $response = file_get_contents("https://bsky.social/xrpc/app.bsky.feed.getAuthorF
         echo linkify_twitter_status($status);
         echo '<div class="twitterdate">';
         echo statusLink($tweet->post->uri, $tweet->post->author->handle, date('D M d H:i', $date));
-        if (property_Exists($tweet, "reply"))
+        if (property_Exists($tweet, "reply") && property_exists($tweet->reply->parent, "author"))
         {
                 echo statusLink($tweet->reply->parent->uri, $tweet->reply->parent->author->handle, 'In reply to '.$tweet->reply->parent->author->displayName);
         }
