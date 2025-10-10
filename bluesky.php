@@ -59,8 +59,10 @@ $response = file_get_contents("https://bsky.social/xrpc/app.bsky.feed.getAuthorF
 
             $facets = $tweet->post->record->facets;
 
+//print_r($facets);
+
             usort($facets, function ($a, $b) {
-                return $b['index']['byteStart'] - $a['index']['byteStart'];
+                return $b->index->byteStart - $a->index->byteStart;
             });
 
             foreach ($facets as $facet) {
@@ -72,7 +74,8 @@ $response = file_get_contents("https://bsky.social/xrpc/app.bsky.feed.getAuthorF
                 $uri = $facet->features[0]->uri ?? '';
 
                 // Replace using byte-aware substr_replace
-                $status = substr_replace($status, $uri, $start, $length);
+                if ($uri != '')
+                    $status = substr_replace($status, $uri, $start, $length);
 
             }
 
