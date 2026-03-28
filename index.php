@@ -32,8 +32,10 @@
 <h1>The Jamie Kitson Portal</h1>
 <a href="m&#97;&#105;l&#116;&#111;:&#106;a&#109;&#105;e&#64;kit&#115;o&#110;.&#120;y&#122;">j&#97;&#109;&#105;&#101;&#64;&#107;&#105;&#116;s&#111;n&#46;&#120;&#121;z</a>
 <a href="https://jamiekitson.com">CV</a>
+<!-- This is from 2011!
 <br>
 Mongol Rally: <a href="https://geekout.org.uk">Team Geekout</a> 
+-->
 <br>
 <a href="https://github.com/JamieKitson">GitHub</a>
 </header>
